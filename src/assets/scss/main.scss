@@ -1,0 +1,138 @@
+@import 'variables';
+
+
+// Reset
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    font-family: 'Roboto Mono', monospace;
+    line-height: 1.2em;
+    
+    color: white;
+    background: $dark-gray;
+    overflow: hidden;
+}
+
+a, a:hover {
+    color: white;
+    text-decoration: none;
+}
+
+// Layouts
+.l-side {
+    position: relative;
+    float: left;
+    
+    width: $slider-width;
+    
+    transition: transform 1s ease-in-out;
+    transform: translate3d(var(--slideX) , 0, 0);
+}
+
+.l-section {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    width: calc(100% / var(--pages));
+    height: calc(100vh - 52px);
+}
+
+
+// Components
+.c-navbar {
+    background: $trasparent-dark-gray;
+
+    display: flex;
+    position: sticky;
+    top: 0;
+
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2em;
+
+    &__logo {
+        
+        font-size: 12px;
+
+    }
+
+    .l-nav {
+        display: flex;
+        list-style: none;
+
+        &__btn {
+            position: relative;
+            display: inline-block;
+            padding: 1em;
+
+            
+            cursor: pointer;
+            
+            transition: all 0.3s ease;
+
+            &:after {
+                content: '';
+
+                width: 100%;
+                height: 0;
+
+                background: white;
+
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                z-index: 2;
+
+            }
+
+            &:hover, &.is-active {
+                background: lighten($dark-gray, 2%);
+            }
+
+            &.is-active {
+                transition: all 1s ease;
+
+                padding: 1em 1.4em;
+
+                &::after {
+                    height: 2px;
+                }
+            }
+        }
+    }
+}
+
+.c-home {
+
+    display: flex;
+    align-items: center;
+
+    width: 100%;
+
+    &__img {
+        flex: 2;
+        height: 60vh;
+
+        background: url('./assets/img/bike.jpg') no-repeat center center/cover;
+    }
+
+    &__desc {
+
+        flex: 2;
+        padding: 3em;
+        margin-top: 15vh;
+
+        p {
+            max-width: 600px;
+        }
+
+        h1 {
+            margin-bottom: 2rem;
+        }
+    }
+}
