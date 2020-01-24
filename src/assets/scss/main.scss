@@ -14,7 +14,7 @@ html, body {
     
     color: white;
     background: $dark-gray;
-    overflow: hidden;
+    overflow-x: hidden;
 }
 
 a, a:hover {
@@ -30,7 +30,7 @@ a, a:hover {
     width: $slider-width;
     
     transition: transform 1s ease-in-out;
-    transform: translate3d(var(--slideX) , 0, 0);
+    transform: translate3d(#{$slideX} , 0, 0);
 }
 
 .l-section {
@@ -38,7 +38,7 @@ a, a:hover {
     align-items: center;
     justify-content: center;
 
-    width: calc(100% / var(--pages));
+    width: calc(100% / #{$pages});
     height: calc(100vh - 52px);
 }
 
@@ -50,6 +50,7 @@ a, a:hover {
     display: flex;
     position: sticky;
     top: 0;
+    z-index: 2;
 
     align-items: center;
     justify-content: space-between;
