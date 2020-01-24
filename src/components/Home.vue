@@ -93,20 +93,6 @@ export default {
 
     computed: {
         
-        // sideSlide: function() {
-
-        //     for (var i = 0; this.pages.length < i; i++) {
-
-        //         if (this.pages[i] == this.activePage) {
-        //             this.activeIndex = i;
-
-        //             // console.log(this.activePage);
-        //         }
-        //     }
-
-        //     return null;
-        // }
-
         scssVars() {
             return {
                 '--pages': this.pages.length,
