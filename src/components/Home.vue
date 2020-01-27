@@ -77,6 +77,16 @@ export default {
 
     computed: {
 
+        scssVars() {
+            return {
+                '--pages': this.pages.length,
+                '--slideX': (-100 * this.pageIndex + 'vw'),
+                '--scrollbarWidth': (this.getScrollbarWidth + 'px')
+            }
+        }
+    },
+
+    watch: {
         getScrollbarWidth() {
              // Creating invisible container
             const outer = document.createElement('div');
@@ -97,16 +107,7 @@ export default {
 
             return scrollbarWidth;
         },
-        
-        scssVars() {
-            return {
-                '--pages': this.pages.length,
-                '--slideX': (-100 * this.pageIndex + 'vw'),
-                '--scrollbarWidth': (this.getScrollbarWidth + 'px')
-            }
-        }
-
-    },
+    }
 }
 </script>
 
