@@ -12,67 +12,34 @@
                     </li> -->
 
                     <li v-for="(page, index) in pages" :key="index">
-                        <div class="nav__btn" @click="pageIndex = index" :class="{'is-active': pageIndex === index }">.{{page}}</div>
+                        <div class="nav__btn" :class="{'is-active': pageIndex === index }" @click="pageIndex = index">.{{page}}</div>
                     </li>
                 </ul>
             </div>
         </div>
         
-        <!-- <div class="l-side" :style="{transform:' translate3d(calc(-100vw*' + pageIndex +'), 0, 0)'}"> -->
         <div class="home">
             <div class="home__section">
 
-                <div class="preview">
-                    <div class="preview__img"></div>
-                    <div class="preview__desc">
-                        <h1>20 Coperti</h1>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur explicabo illo alias repellat quam quas accusantium mollitia sed molestias! Aliquid itaque aspernatur dolore totam molestias cumque! Esse culpa dolores quidem, ex quod, incidunt labore quibusdam recusandae, iste ipsum dolorum. Velit?</p>
-                    </div>
-                </div>
+                <preview></preview>
 
             </div>
 
             <div class="home__section">
 
-                <div class="about">
-                    <div class="about__desc">
-                        <h1>jacopo<br> .panzera</h1>
-                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deleniti, voluptate beatae? Magni amet, excepturi quasi consequuntur nulla quam placeat saepe. Ut eos illum repellat ea sit. Alias pariatur quibusdam eveniet officiis soluta numquam, nihil accusamus, dolore necessitatibus quis provident perspiciatis.</p>
-                    </div>
-                    <div class="about__img"></div>
-                </div>
-
-                <!-- <div class="preview">
-                    <div class="preview__img"></div>
-                    <div class="preview__desc">
-                        <h1>20 Coperti</h1>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur explicabo illo alias repellat quam quas accusantium mollitia sed molestias! Aliquid itaque aspernatur dolore totam molestias cumque! Esse culpa dolores quidem, ex quod, incidunt labore quibusdam recusandae, iste ipsum dolorum. Velit?</p>
-                    </div>
-                </div> -->
+                <about></about>
 
             </div>
 
             <div class="home__section">
 
-                <div class="preview">
-                    <div class="preview__img"></div>
-                    <div class="preview__desc">
-                        <h1>20 Coperti</h1>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur explicabo illo alias repellat quam quas accusantium mollitia sed molestias! Aliquid itaque aspernatur dolore totam molestias cumque! Esse culpa dolores quidem, ex quod, incidunt labore quibusdam recusandae, iste ipsum dolorum. Velit?</p>
-                    </div>
-                </div>
+                <preview></preview>
 
             </div>
 
             <div class="home__section">
 
-                <div class="preview">
-                    <div class="preview__img"></div>
-                    <div class="preview__desc">
-                        <h1>20 Coperti</h1>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur explicabo illo alias repellat quam quas accusantium mollitia sed molestias! Aliquid itaque aspernatur dolore totam molestias cumque! Esse culpa dolores quidem, ex quod, incidunt labore quibusdam recusandae, iste ipsum dolorum. Velit?</p>
-                    </div>
-                </div>
+                <about></about>
 
             </div>
         </div>
@@ -84,7 +51,16 @@
 </template>
 
 <script>
+import preview from './_Preview.vue'
+import about from './_About.vue'
+
+
 export default {
+    components: {
+        preview,
+        about,
+    },
+
     data() {
         return {
             asd: 0,
@@ -100,11 +76,33 @@ export default {
     },
 
     computed: {
+
+        getScrollbarWidth() {
+             // Creating invisible container
+            const outer = document.createElement('div');
+            outer.style.visibility = 'hidden';
+            outer.style.overflow = 'scroll'; // forcing scrollbar to appear
+            outer.style.msOverflowStyle = 'scrollbar'; // needed for WinJS apps
+            document.body.appendChild(outer);
+
+            // Creating inner element and placing it in the container
+            const inner = document.createElement('div');
+            outer.appendChild(inner);
+
+            // Calculating difference between container's full width and the child width
+            const scrollbarWidth = (outer.offsetWidth - inner.offsetWidth);
+
+            // Removing temporary elements from the DOM
+            outer.parentNode.removeChild(outer);
+
+            return scrollbarWidth;
+        },
         
         scssVars() {
             return {
                 '--pages': this.pages.length,
-                '--slideX': -100 * this.pageIndex + 'vw',
+                '--slideX': (-100 * this.pageIndex + 'vw'),
+                '--scrollbarWidth': (this.getScrollbarWidth + 'px')
             }
         }
 
