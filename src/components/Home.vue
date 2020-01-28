@@ -33,13 +33,13 @@
 
             <div class="home__section">
 
-                <preview></preview>
+                <works></works>
 
             </div>
 
             <div class="home__section">
 
-                <about></about>
+                <contact></contact>
 
             </div>
         </div>
@@ -53,37 +53,38 @@
 <script>
 import preview from './_Preview.vue'
 import about from './_About.vue'
+import works from './_Works.vue'
+import contact from './_Contact.vue'
 
 
 export default {
     components: {
         preview,
         about,
+        works,
+        contact,
     },
 
     data() {
         return {
-            asd: 0,
             pageIndex: 0,
-            pages: [ 'home', 'about', 'works', 'contact' ]
+            pages: [ 'home', 'about', 'works', 'contact' ],
         }
     },
 
+
     methods: {
         
-        
-
     },
 
     computed: {
-
         scssVars() {
             return {
                 '--pages': this.pages.length,
                 '--slideX': (-100 * this.pageIndex + 'vw'),
                 '--scrollbarWidth': (this.getScrollbarWidth + 'px')
             }
-        }
+        },
     },
 
     watch: {
