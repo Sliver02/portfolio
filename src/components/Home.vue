@@ -82,7 +82,8 @@ export default {
             return {
                 '--pages': this.pages.length,
                 '--slideX': (-100 * this.pageIndex + 'vw'),
-                '--scrollbarWidth': (this.getScrollbarWidth + 'px')
+                '--scrollbarWidth': (this.getScrollbarWidth + 'px'),
+                '--yRandom': ((Math.random() * 20) + 10),
             }
         },
     },
