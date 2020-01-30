@@ -2,12 +2,10 @@
 
     <div id="main" :style="scssVars">
         <div class="navbar">
-            <div class="navbar__logo">
-
+            <a class="navbar__logo" href=".">
                 <img :src="require('../assets/img/icons/logo.svg')" alt="">
-
-                <a href="."><h1>jac.pan</h1></a>
-            </div>
+                <h1>jac.pan</h1>
+            </a>
             <div class="navbar__menu">
                 <ul class="nav">
                     <!-- <li v-for="(page, index) in pages" :key="index">
