@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto+Mono|Space+Mono:700&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css');
 @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
 
 @import 'variables';
@@ -39,6 +40,8 @@ a, a:hover {
 //Generals
 .container {
     @include flex-center();
+    position: relative;
+
 }
 
 // Components
@@ -58,6 +61,14 @@ a, a:hover {
         
         font-size: 12px;
 
+        // h1 {
+        //     &::before {
+        //         content: '';
+        //         background: url('./assets/icons/logo.svg') no-repeat center center/cover;;
+        //         height: 100%;
+        //         width: 60px;
+        //     }
+        // }
     }
 
     .nav {
@@ -112,7 +123,7 @@ a, a:hover {
 
     padding: 0.8rem 1.5rem;
     margin: 2rem 0;
-    border: 1px solid white;
+    border: 1px solid white !important; 
 
     transition: all 0.3s;
 
@@ -207,11 +218,9 @@ a, a:hover {
         left: 40vh;
 
         mix-blend-mode: difference;
-        z-index: 1;
     }
 
     &__link-wrapper {
-
         display: flex;
         flex-direction: column;
         align-items: left;
@@ -224,21 +233,17 @@ a, a:hover {
         transition: all 0.6s ease-out;
         opacity: 0.5;
 
-        font-size: 3rem;
+        font-size: 3.5rem;
         line-height: 1.2;
 
         &:hover,&.is-active {
             transform: translateX(16px);
-            // font-size: 3.4rem;
-
         }
         
         &.is-active {
             opacity: 1;
-            // transform: translateX(16px);
-            font-size: 3.3rem;
+            font-size: 3.8rem;
         }
-        
     }
 
     &__desc {
@@ -247,16 +252,10 @@ a, a:hover {
     }
 
     &__img-wrapper {
-        //left: 30vw;
         position: absolute;
-        z-index: 3;
-
+        z-index: 2;
         top: 0;
 
-        // width: 40vw;
-        // height: 60vh;
-
-        // background: url('./assets/img/projects/bike.jpg') no-repeat center center/cover;
         mix-blend-mode: difference;
 
         img {
@@ -320,45 +319,240 @@ a, a:hover {
         p {
             max-width: 500px;
         }
+
+    }
+    
+    .social {
+        font-size: 2.2rem;
+        margin: 18px 0;
+        position: absolute;
+        right: 20px;
+        bottom: -40px;
+
+        i {
+            margin: 0 8px;
+            transition: all 0.2s;
+            opacity: 0.6;
+
+            &:hover {
+                // font-size: 2.5rem;
+                opacity: 1;
+                transform: translateY(-5px);
+
+            }
+        }
     }
 }
 
 .works {
+    $timing: 0.8s;
+
     @include flex-center();
 
     width: 100%;
 
-    &__header, &__section {
-        @include flex-center();
+    &__wrapper {
+        width: 80%;
+        // height: 80%;
+
+        // display: grid;
+        // flex-wrap: wrap;
+        // grid-auto-columns: 10vh;
+        // grid-auto-rows: 10vh;
+        // grid-gap: 1rem;
+
+        display: flex;
+        flex-wrap: wrap;
+
+        &:hover {
+
+        }
+    }
+
+    &__project {
+        $side: 25vh;
+        margin: 10px;
+
+        width: $side;
+        height: $side;
+        position: relative;
+
+
+        // background: red;
+        // border: 1px solid green;
+    }
+
+    &__thumbnail-wrapper {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         
         width: 100%;
-        height: 100vh;
+        height: 100%;
+
+        overflow: hidden;
+        cursor: pointer;
+
+
+        .thumbnail {
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            
+            width: 90%;
+            height: 90%;
+
+            transition: all $timing;
+
+            img {
+                position: absolute;
+                max-height: 120%;
+                opacity: 0.6;
+
+                transition: all $timing;
+            }
+
+        }
+        
+        :hover > & {
+            .thumbnail {
+                width: 100%;
+                height: 100%;
+    
+                img {
+                    opacity: 1;
+                    max-height: 100%;
+                }
+            }
+        }
     }
 
-    &__content {
+    &__title {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        mix-blend-mode: difference;
+        transition: all $timing;
 
-        
+        :hover > & {
+            bottom: 10px;
+            right: 10px;
+        }
     }
     
-    &__img {
-        flex: 2;
-        height: 60vh;
+    // &__header, &__section {
+    //     @include flex-center();
+        
+    //     width: 100%;
+    //     height: 100vh;
+    // }
 
-        background: url('./assets/img/projects/bike.jpg') no-repeat center center/cover;
+    // &__content {
+
+        
+    // }
+    
+    // &__img {
+    //     flex: 2;
+    //     height: 60vh;
+
+    //     background: url('./assets/img/projects/bike.jpg') no-repeat center center/cover;
+    // }
+
+    // &__desc {
+
+    //     flex: 2;
+    //     padding: 3rem;
+    //     margin-top: 15vh;
+
+    //     h1 {
+    //         margin-bottom: 2rem;
+    //     }
+
+    //     p {
+    //         max-width: 600px;
+    //     }
+    // }
+}
+
+.contact {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    width: 80%;
+    max-width: 800px;
+    
+    label {
+        display: block;
+        margin-bottom: 5px;
+        font-size: 12px;
+    }
+
+    input[type="text"], textarea[type="text"]{
+        font-family: 'Roboto Mono', monospace;
+        font-size:16px;
+    }
+
+    input, textarea {
+        background: darken($dark-gray, 3%);
+        border: none;
+        padding: 12px 18px;
+        color: white;
+
+        width: 100%;
+    }
+
+    &__header {
+        margin-bottom: 3.5rem;
+
+        h1 {
+            font-family: 'Space Mono', monospace;
+            margin-bottom: 1rem;
+            font-size: 3rem;
+        }
     }
 
     &__desc {
+    }
 
-        flex: 2;
-        padding: 3rem;
-        margin-top: 15vh;
+    &__form {
+        display: grid;
+        grid-template-columns: repeat(4, auto);
+        grid-template-row: repeat(3, auto);
+        grid-gap: 14px;
 
-        h1 {
-            margin-bottom: 2rem;
-        }
+        width: 100%;
+    }   
 
-        p {
-            max-width: 600px;
+    &__name {
+        grid-column-start: 1;
+        grid-column-end: 4;
+    }
+
+    &__title {
+
+    }
+
+    &__email {
+        grid-column-start: 1;
+        grid-column-end: 3;
+    }
+
+    &__phone {
+        grid-column-start: 3;
+        grid-column-end: 5;
+    }
+
+    &__why {
+        grid-column-start: 1;
+        grid-column-end: 5;
+
+        textarea {
+            min-height: 250px;
         }
     }
 }

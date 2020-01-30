@@ -19,8 +19,8 @@
 
         <div class="preview__img-wrapper">
             <img class="img-drag" v-for="(image, index) in images" :key="index" 
-            :id="index" :src="require('../assets/img/homepage/' + image +'.jpg')" alt="" 
-             @mousedown="startDrag(index)" @mousemove="doDrag" @mouseup="stopDrag">
+            :id="image.thumb" :src="require('../assets/img/projects/thumb/' + image.thumb +'.jpg')" alt="" 
+             @mousedown="startDrag(image.thumb)" @mousemove="doDrag" @mouseup="stopDrag">
         </div>
 
 
@@ -36,8 +36,16 @@ export default {
     data() {
         return {
             skillIndex: null,
-            skills: [ 'Graphic Design', 'Illustration Artist', 'Web Designer' ],
-            images: [ 'Graphic Design', 'Illustration Artist', 'Web Designer' ],
+            skills: [ 'Graphic Design', 'Illustration', 'Web Design' ],
+
+            // riorganizzazione img root, conversione in array di objects
+            images: [ 
+                {thumb: 'mopay', name: 'mo pay'},
+                {thumb: '20coperti', name: '20 coperti'},
+                {thumb: 'hardrockolo', name: 'hard rockolo'},
+                {thumb: 'urdrugs', name: 'know your drugs'},
+             ],
+            
             imgDragged: null,
             dragging: false,
             element: {
@@ -49,9 +57,7 @@ export default {
             },
             viewportWidth: null,
             viewportHeight: null,
-
         }
-
     },
 
     mounted() {
@@ -59,16 +65,16 @@ export default {
         // this.dragElement(document.getElementsByClassName('img-drag'));
         // window.addEventListener('mouseup', this.stopDrag);
 
-            console.log(this.images);
+            // console.log(this.images);
 
 
         for(var i=0; i < this.images.length; i++) {
-            var img = document.getElementById(i);
+            var img = document.getElementById(this.images[i].thumb);
 
             img.style.left = (Math.random()*40) + 20 + "vw";
-            img.style.top = (Math.random()*20)+ 10 + "vh";
+            img.style.top = (Math.random()*50)+ 10 + "vh";
 
-            console.log(i + ' ' + this.images[i]);
+            // console.log(i + ' ' + this.images[i]);
         }
     },
 
@@ -110,7 +116,7 @@ export default {
             this.element.yOff = this.imgDragged.offsetTop;
 
             this.imgDragged.style.zIndex = ++this.element.z;
-            document.getElementsByClassName('preview__text-wrapper').style.zIndex = this.imgDragged.style.zIndex + 1;
+            // document.getElementsByClassName('preview__text-wrapper').style.zIndex = this.imgDragged.style.zIndex + 1;
             
             this.viewportWidth = this.viewport().width;
             this.viewportHeight = this.viewport().height;
@@ -131,8 +137,8 @@ export default {
                 this.imgDragged.style.left = xCurrent + "px";
                 this.imgDragged.style.top = yCurrent + "px";
 
-                console.log(this.imgDragged.style.left);
-                console.log(this.imgDragged.style.top);
+                // console.log(this.imgDragged.style.left);
+                // console.log(this.imgDragged.style.top);
             }
         },
 

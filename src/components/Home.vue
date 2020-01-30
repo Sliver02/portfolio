@@ -3,7 +3,10 @@
     <div id="main" :style="scssVars">
         <div class="navbar">
             <div class="navbar__logo">
-                <h1><a href=".">jac.pan</a></h1>
+
+                <img :src="require('../assets/img/icons/logo.svg')" alt="">
+
+                <a href="."><h1>jac.pan</h1></a>
             </div>
             <div class="navbar__menu">
                 <ul class="nav">
@@ -33,7 +36,7 @@
 
             <div class="home__section">
 
-                <works></works>
+                <works @show='show' ></works>
 
             </div>
 
@@ -67,6 +70,7 @@ export default {
 
     data() {
         return {
+            show: false,
             pageIndex: 0,
             pages: [ 'home', 'about', 'works', 'contact' ],
         }
