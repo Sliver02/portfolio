@@ -247,10 +247,11 @@ a, a:hover {
     }
 
     &__img-wrapper {
-        top: $asdasd + vh;
-        left: 30vw;
+        //left: 30vw;
         position: absolute;
         z-index: 3;
+
+        top: 0;
 
         // width: 40vw;
         // height: 60vh;
@@ -260,7 +261,11 @@ a, a:hover {
 
         img {
             max-width: 600px;
+            max-height: 300px;
             position: absolute;
+
+            cursor: move;
+
         }
     }
 }

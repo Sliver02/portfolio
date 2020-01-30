@@ -9,7 +9,7 @@
                     Aliquid itaque aspernatur dolore totam molestias cumque! Esse culpa dolores quidem, 
                     ex quod, incidunt labore quibusdam recusandae, iste ipsum dolorum. Velit?</p>
 
-                <div class="btn" :class="{'btn--active': expand === true}" @click="expandPrev()">.see more</div>
+                <!--div class="btn" :class="{'btn--active': expand === true}" @click="expandPrev()">.see more</div-->
             </div>
         </div>
     </div>
