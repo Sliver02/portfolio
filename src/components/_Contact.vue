@@ -31,7 +31,7 @@
                 <textarea id="why" type="text"></textarea>
             </div>
 
-            <input class="btn" :class="{'btn--active': expand === true}" type="submit" value=".send">
+            <input class="btn" type="submit" value=".send">
             <!-- <div class="btn" :class="{'btn--active': expand === true}" @click="expandPrev()">.see more</div> -->
         </form>
     </div>

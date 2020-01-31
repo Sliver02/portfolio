@@ -1,11 +1,11 @@
 <template>
-    <div class="preview" :style="scssVars">
+    <div class="preview">
 
-        <div class="preview__text-wrapper">
+        <!-- <div class="preview__text-wrapper"> -->
             <div class="preview__link-wrapper">
                 <a v-for="(skill, index) in skills" :key="index" href="#" class="preview__link" 
                 :class="{'is-active': skillIndex === index }" @click="skillSelector(index)">
-                    {{skill}}
+                    {{skill.name}}
                 </a>
             </div>
 
@@ -15,12 +15,12 @@
                 Aliquid itaque aspernatur dolore totam molestias cumque! Esse culpa dolores quidem, 
                 ex quod, incidunt labore quibusdam recusandae, iste ipsum dolorum. Velit?</p>
             </div>
-        </div>
+        <!-- </div> -->
 
         <div class="preview__img-wrapper">
-            <img class="img-drag" v-for="(image, index) in images" :key="index" 
-            :id="image.thumb" :src="require('../assets/img/projects/thumb/' + image.thumb +'.jpg')" alt="" 
-             @mousedown="startDrag(image.thumb)" @mousemove="doDrag" @mouseup="stopDrag">
+            <img class="img-drag" v-for="(image, index) in getProjectsPreview" :key="index" 
+            :id="image.url" :src="require('../assets/img/projects/' + image.url +'/thumbnail.jpg')" alt="" 
+             @mousedown="startDrag(image.url)" @mousemove="doDrag" @mouseup="stopDrag">
         </div>
 
 
@@ -28,6 +28,8 @@
 </template>
 
 <script>
+import {mapState, mapGetters} from 'vuex';
+
 export default {
     components: {
         
@@ -36,16 +38,6 @@ export default {
     data() {
         return {
             skillIndex: null,
-            skills: [ 'Graphic Design', 'Illustration', 'Web Design' ],
-
-            // riorganizzazione img root, conversione in array di objects
-            images: [ 
-                {thumb: 'mopay', name: 'mo pay'},
-                {thumb: '20coperti', name: '20 coperti'},
-                {thumb: 'hardrockolo', name: 'hard rockolo'},
-                {thumb: 'urdrugs', name: 'know your drugs'},
-             ],
-            
             imgDragged: null,
             dragging: false,
             element: {
@@ -68,11 +60,11 @@ export default {
             // console.log(this.images);
 
 
-        for(var i=0; i < this.images.length; i++) {
-            var img = document.getElementById(this.images[i].thumb);
+        for(var i=0; i < this.getProjectsPreview.length; i++) {
+            var img = document.getElementById(this.getProjectsPreview[i].url);
 
-            img.style.left = (Math.random()*40) + 20 + "vw";
-            img.style.top = (Math.random()*50)+ 10 + "vh";
+            img.style.left = (Math.random()*40) + 10 + "vw";
+            img.style.top = (Math.random()*50) + "vh";
 
             // console.log(i + ' ' + this.images[i]);
         }
@@ -116,7 +108,6 @@ export default {
             this.element.yOff = this.imgDragged.offsetTop;
 
             this.imgDragged.style.zIndex = ++this.element.z;
-            // document.getElementsByClassName('preview__text-wrapper').style.zIndex = this.imgDragged.style.zIndex + 1;
             
             this.viewportWidth = this.viewport().width;
             this.viewportHeight = this.viewport().height;
@@ -155,13 +146,14 @@ export default {
     },
 
     computed: {
-        scssVars() {
-            return {
-                '--yRandom': ((Math.random() * 20) + 10),
-            }
-        },
+        ...mapState([
+            'skills'
+        ]),
+        ...mapGetters([
+            'getProjectsPreview',
+        ]),
     },
-
+    
     watch: {
 
     },

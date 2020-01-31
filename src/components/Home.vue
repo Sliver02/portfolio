@@ -13,7 +13,7 @@
                     </li> -->
 
                     <li v-for="(page, index) in pages" :key="index">
-                        <div class="nav__btn" :class="{'is-active': pageIndex === index }" @click="pageIndex = index">.{{page}}</div>
+                        <div class="nav__btn" :class="{'is-active': pageIndex === index }" @click="switchPage(index)">.{{page}}</div>
                     </li>
                 </ul>
             </div>
@@ -56,7 +56,7 @@ import preview from './_Preview.vue'
 import about from './_About.vue'
 import works from './_Works.vue'
 import contact from './_Contact.vue'
-
+import {mapState, mapMutations} from 'vuex';
 
 export default {
     components: {
@@ -69,17 +69,21 @@ export default {
     data() {
         return {
             show: false,
-            pageIndex: 0,
             pages: [ 'home', 'about', 'works', 'contact' ],
         }
     },
 
 
     methods: {
-        
+        ...mapMutations([
+            'switchPage',
+        ]),
     },
 
     computed: {
+        ...mapState([
+            'pageIndex',
+        ]),
         scssVars() {
             return {
                 '--pages': this.pages.length,

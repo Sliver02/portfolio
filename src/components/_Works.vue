@@ -1,53 +1,61 @@
 <template>
     <div class="works">
         <div class="works__wrapper">
-            <div class="works__project" v-for="(work, index) in works" :key="index">
-                <div class="works__thumbnail-wrapper">
-                    <div class="thumbnail">
-                        <img :src="require('../assets/img/projects/thumb/' + work.thumb +'.jpg')" alt="">
+
+            <div class="works__project" v-for="(project, index) in projects" :key="index" @click="projectPage(index)">
+                <div class="works__thumbnail-wrapper" >
+                    <div class="works__thumbnail">
+                        <img :src="require('../assets/img/projects/' + project.url +'/thumbnail.jpg')" alt="">
                     </div>
                 </div>
                 <div class="works__title">
-                    .{{work.name}}
+                    .{{project.name}}
                 </div>
+
             </div>
+
         </div>
-
-        <transition v-if="show == true">
-            <project></project>
+        
+        <transition name="fadeRigt">
+            <projectPage v-if="showProject == true" :selectedProject="selectedProject" ></projectPage>
         </transition>
-
     </div>
 </template>
 
 <script>
-import project from './_Project';
+import projectPage from './_Project';
+import {mapState, mapMutations} from 'vuex';
 
 export default {
     components: {
-        project,
+        projectPage,
     },
 
     data() {
         return {
-        props: ['show'],
-
-            works: [
-                {thumb: 'mopay', name: 'mo pay'},
-                {thumb: '20coperti', name: '20 coperti'},
-                {thumb: 'hardrockolo', name: 'hard rockolo'},
-                {thumb: 'urdrugs', name: 'know your drugs'},
-            ],
+            selectedProject: 0,
         }
     },
 
     methods: {
+        ...mapMutations([
+            'openProject',
+        ]),
+        projectPage(index) {
+            console.log(index);
+            console.log(this.selectedProject);
 
+            this.selectedProject = index;
+            this.openProject();
+        },
     },
 
     computed: {
-
-    },
+        ...mapState([
+            'showProject',
+            'projects',
+        ]),
+    }
 }
 </script>
 
