@@ -1,19 +1,20 @@
 <template>
     <div class="project">
         <div class="project__header">
-            <div class="project__img"></div>
+            <div class="project__img">
+                <img :src="require('../assets/img/projects/' + project.url +'/thumbnail.jpg')" alt="">
+            </div>
             <div class="project__desc">
-                <h1>.{{projects[selectedProject].name}}</h1>
+                <h1>{{project.name}}</h1>
                 
-                <p v-if="projects[selectedProject].desc == ''">
+                <p v-if="project.desc == ''">
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. 
                     Tenetur explicabo illo alias repellat quam quas accusantium mollitia sed molestias! 
                     Aliquid itaque aspernatur dolore totam molestias cumque! Esse culpa dolores quidem, 
                     ex quod, incidunt labore quibusdam recusandae, iste ipsum dolorum. Velit?
                 </p>
 
-                <p v-else>
-                    {{projects[selectedProject].desc}}
+                <p v-else v-html="project.desc">
                 </p>
 
                 <div class="btn" @click="closeProject">.close</div>
@@ -55,6 +56,9 @@ export default {
             'showProject',
             'projects',
         ]),
+        project() {
+            return this.projects[this.selectedProject];
+        },
     }
 }
 </script>

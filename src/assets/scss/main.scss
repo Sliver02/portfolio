@@ -137,16 +137,14 @@ a, a:hover {
     display: inline-block;
 
     padding: 0.8rem 1.5rem;
+    background: darken($dark-gray, 3%);
+
     // margin: 1rem 0;
     // border: 1px solid white !important; 
 
     transition: all 0.3s;
 
-    &:hover {
-        background: lighten($dark-gray, 2%);
-    }
-
-    &--active, &:active {
+    &--active, &:hover, &:active {
         color: $dark-gray;
         background: white;
 
@@ -362,10 +360,6 @@ a, a:hover {
 
         display: flex;
         flex-wrap: wrap;
-
-        &:hover {
-
-        }
     }
 
     &__project {
@@ -442,7 +436,6 @@ a, a:hover {
 }
 
 .project {
-
     position: absolute;
     width: 100%;
 
@@ -455,35 +448,41 @@ a, a:hover {
         height: 100vh;
     }
 
-    &__content {
+    //&__content {
 
         
-    }
+    //}
     
     &__img {
         flex: 2;
         height: 60vh;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        //background: url('./assets/img/projects/20coperti/thumbnail.jpg') no-repeat center center/cover;
 
-        background: url('./assets/img/projects/20coperti/thumbnail.jpg') no-repeat center center/cover;
+        img {
+            height: 100%;
+        }
     }
 
     &__desc {
-
         flex: 2;
         padding: 3rem;
         margin-top: 15vh;
 
         h1 {
+            font-family: 'Space Mono', monospace;
+            font-size: 3rem;
             margin-bottom: 2rem;
         }
 
         p {
             max-width: 600px;
+            margin-top: 1rem;
+            margin-bottom: 2rem;
         }
-    }
-
-    .btn {
-        margin: 1rem 0;
     }
 }
 
@@ -531,7 +530,7 @@ a, a:hover {
     &__form {
         display: grid;
         grid-template-columns: repeat(4, auto);
-        grid-template-row: repeat(3, auto);
+        // grid-template-row: repeat(3, auto);
         grid-gap: 14px;
 
         width: 100%;

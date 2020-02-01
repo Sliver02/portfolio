@@ -9,7 +9,7 @@
                     </div>
                 </div>
                 <div class="works__title">
-                    .{{project.name}}
+                    .{{project.url}}
                 </div>
 
             </div>
