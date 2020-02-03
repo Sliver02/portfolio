@@ -18,12 +18,12 @@
         <!-- </div> -->
 
         <div class="preview__img-wrapper" >
-            <img class="img-drag" v-for="(image, index) in getProjectsPreview" :key="index" 
-            :id="image.url" :src="require('../assets/img/projects/' + image.url +'/thumbnail.jpg')" alt="" 
-            @mousedown="startDrag(image.url)" @mousemove="doDrag" @mouseup="stopDrag">
+            <transition-group name="fadeIn">
+                <img class="img-drag" v-for="(project, index) in getProjectsPreview" :key="index" v-show="project.show"
+                :id="project.url" :src="require('../assets/img/projects/' + project.url +'/thumbnail.jpg')" alt="" 
+                @mousedown="startDrag(project.url)" @mousemove="doDrag" @mouseup="stopDrag">
+            </transition-group>
         </div>
-
-
     </div>
 </template>
 
@@ -55,25 +55,19 @@ export default {
 
     mounted() {
 
-        // this.dragElement(document.getElementsByClassName('img-drag'));
-        // window.addEventListener('mouseup', this.stopDrag);
-
-            // console.log(this.images);
-
-
+        // image position scrambler
         for(var i=0; i < this.getProjectsPreview.length; i++) {
             var img = document.getElementById(this.getProjectsPreview[i].url);
 
             img.style.left = (Math.random()*40) + 10 + "vw";
             img.style.top = (Math.random()*50) + "vh";
-
-            // console.log(i + ' ' + this.images[i]);
         }
     },
 
     methods: {
         ...mapMutations([
             'switchSkill',
+            'switchPreview',
         ]),
         
         viewport() {
@@ -86,17 +80,6 @@ export default {
 
             return { width : e[ a+'Width' ] , height : e[ a+'Height' ] }
         },
-
-        /*skillSelector($skill) {
-
-            if (this.skillIndex != $skill) {
-                this.skillIndex = $skill;
-            } else {
-                this.skillIndex = null;
-            }
-
-            return this.skillIndex;
-        },*/
 
         startDrag(index, ev) {
             ev = ev || window.event;
@@ -160,34 +143,6 @@ export default {
         ...mapGetters([
             'getProjectsPreview',
         ]),
-        filterPreviewType() {
-            var projects = [];
-
-    
-            if(this.selectedSkill == null) {
-
-                projects = this.getProjectsPreview;
-
-            } else {
-                this.getProjectsPreview.forEach(function(project) {
-                    console.log(this.selectedSkill)
-
-                    projects.push(project);
-
-                    /*for (let i=0; i < project.type.length; i++) {
-                        
-                        if (project.type[i] == this.selectedSkill) {
-
-                            console.log(project.name + ' ' + project.type[i])
-                            projects.push(project);
-                        }
-                    }*/
-                });
-            }
-
-
-            return projects;
-        },
     },
     
     watch: {
