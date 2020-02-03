@@ -18,7 +18,7 @@
         <!-- </div> -->
 
         <div class="preview__img-wrapper" >
-            <img class="img-drag" v-for="(image, index) in filterPreviewType" :key="index" 
+            <img class="img-drag" v-for="(image, index) in getProjectsPreview" :key="index" 
             :id="image.url" :src="require('../assets/img/projects/' + image.url +'/thumbnail.jpg')" alt="" 
             @mousedown="startDrag(image.url)" @mousemove="doDrag" @mouseup="stopDrag">
         </div>

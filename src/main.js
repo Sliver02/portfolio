@@ -78,11 +78,12 @@ const store = new Vuex.Store({
     },
     getters: {
       getProjectsPreview: state => {
+        var p = [];
         
-        /*state.projects.forEach(function(project) {
+        state.projects.forEach(function(project) {
           if (project.preview) {
             if (state.selectedSkill == null) {
-              return project;
+              p.push(project);
             } else {
               
               //console.log('skill: ' + state.selectedSkill);
@@ -90,17 +91,15 @@ const store = new Vuex.Store({
                 if (project.type[i] == state.selectedSkill) {
                   console.log('url: ' + project.url);
                   //console.log('type: ' + project.type[i]);
-                  return project;
+                  p.push(project);
+
                 }
               }
             }
           }
-        });*/
-
-        return state.projects.filter(project => project.preview);
-
-
-
+        });
+    
+        return p;
       },
       //getProjectGroup: state => {
         
