@@ -9,24 +9,24 @@ const store = new Vuex.Store({
     state: {
         pageIndex: 0,
         showProject: false,
-        selectedSkill: '',
+        selectedSkill: null,
         skills: [
-          {name: 'Graphic Design', desc: ''},
-          {name: 'Illustration', desc: ''},
-          {name: 'Web Design', desc: ''},
+          {type:'graphic', name: 'Graphic Design', desc: ''},
+          {type:'draw', name: 'Illustration', desc: ''},
+          {type:'web', name: 'Web Design', desc: ''},
         ],
         projects: [
           {
             url: 'urdrugs', 
             name: 'Know your Drugs', 
-            type: ['illustration'],
+            type: ['draw'],
             preview: true, 
             desc: 'Series of vector illustrations born to bring awarness and light on one of the most tabù topic of our society, illegal drugs. <br><br>Often we talk about these substances but most of the time we don’t even know how they look. <br><br>Thorugh weekly Instagram’s posts i tried to bring a visual rapresentation ligthen by a colorfull look, accompanied by a detailed descprition of the drug’s effects and consequences.',
           },
           {
             url: 'sketch', 
             name: 'Sketch Book', 
-            type: ['illustration'],
+            type: ['draw'],
             preview: true, 
             desc: '',
           },
@@ -48,7 +48,7 @@ const store = new Vuex.Store({
             url: 'hrfestival', 
             name: 'Hard Rockolo', 
             type: ['graphic', 'web'],
-            preview: false, 
+            preview: true, 
             desc: '',
           },
           
@@ -67,11 +67,40 @@ const store = new Vuex.Store({
       switchPage(state, index) {
         state.showProject = false;
         state.pageIndex = index;
+      },
+      switchSkill(state, type) {
+        if (state.selectedSkill != type) {
+          state.selectedSkill = type;
+        } else {
+          state.selectedSkill = null;
+        }       
       }
     },
     getters: {
       getProjectsPreview: state => {
+        
+        /*state.projects.forEach(function(project) {
+          if (project.preview) {
+            if (state.selectedSkill == null) {
+              return project;
+            } else {
+              
+              //console.log('skill: ' + state.selectedSkill);
+              for (var i=0; i < project.type.length; i++) {
+                if (project.type[i] == state.selectedSkill) {
+                  console.log('url: ' + project.url);
+                  //console.log('type: ' + project.type[i]);
+                  return project;
+                }
+              }
+            }
+          }
+        });*/
+
         return state.projects.filter(project => project.preview);
+
+
+
       },
       //getProjectGroup: state => {
         
@@ -81,7 +110,7 @@ const store = new Vuex.Store({
 
 // store.commit('increment');
 // console.log(store.state.count);
-console.log(store.getters.getProjectsPreview);
+//console.log(store.getters.getProjectsPreview);
 
 new Vue({
   store,

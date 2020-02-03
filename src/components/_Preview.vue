@@ -4,7 +4,7 @@
         <!-- <div class="preview__text-wrapper"> -->
             <div class="preview__link-wrapper">
                 <a v-for="(skill, index) in skills" :key="index" href="#" class="preview__link" 
-                :class="{'is-active': skillIndex === index }" @click="skillSelector(index)">
+                :class="{'is-active': selectedSkill === skill.type }" @click="switchSkill(skill.type)">
                     {{skill.name}}
                 </a>
             </div>
@@ -17,10 +17,10 @@
             </div>
         <!-- </div> -->
 
-        <div class="preview__img-wrapper">
-            <img class="img-drag" v-for="(image, index) in getProjectsPreview" :key="index" 
+        <div class="preview__img-wrapper" >
+            <img class="img-drag" v-for="(image, index) in filterPreviewType" :key="index" 
             :id="image.url" :src="require('../assets/img/projects/' + image.url +'/thumbnail.jpg')" alt="" 
-             @mousedown="startDrag(image.url)" @mousemove="doDrag" @mouseup="stopDrag">
+            @mousedown="startDrag(image.url)" @mousemove="doDrag" @mouseup="stopDrag">
         </div>
 
 
@@ -28,7 +28,7 @@
 </template>
 
 <script>
-import {mapState, mapGetters} from 'vuex';
+import {mapState, mapGetters, mapMutations} from 'vuex';
 
 export default {
     components: {
@@ -37,7 +37,7 @@ export default {
 
     data() {
         return {
-            skillIndex: null,
+            //skillIndex: null,
             imgDragged: null,
             dragging: false,
             element: {
@@ -49,6 +49,7 @@ export default {
             },
             viewportWidth: null,
             viewportHeight: null,
+            asdasd: null,
         }
     },
 
@@ -71,6 +72,10 @@ export default {
     },
 
     methods: {
+        ...mapMutations([
+            'switchSkill',
+        ]),
+        
         viewport() {
             var e = window, a = 'inner';
 
@@ -82,7 +87,7 @@ export default {
             return { width : e[ a+'Width' ] , height : e[ a+'Height' ] }
         },
 
-        skillSelector($skill) {
+        /*skillSelector($skill) {
 
             if (this.skillIndex != $skill) {
                 this.skillIndex = $skill;
@@ -91,7 +96,7 @@ export default {
             }
 
             return this.skillIndex;
-        },
+        },*/
 
         startDrag(index, ev) {
             ev = ev || window.event;
@@ -143,15 +148,46 @@ export default {
                 ev.preventDefault();
             }
         },
+
+        
     },
 
     computed: {
         ...mapState([
-            'skills'
+            'skills',
+            'selectedSkill',
         ]),
         ...mapGetters([
             'getProjectsPreview',
         ]),
+        filterPreviewType() {
+            var projects = [];
+
+    
+            if(this.selectedSkill == null) {
+
+                projects = this.getProjectsPreview;
+
+            } else {
+                this.getProjectsPreview.forEach(function(project) {
+                    console.log(this.selectedSkill)
+
+                    projects.push(project);
+
+                    /*for (let i=0; i < project.type.length; i++) {
+                        
+                        if (project.type[i] == this.selectedSkill) {
+
+                            console.log(project.name + ' ' + project.type[i])
+                            projects.push(project);
+                        }
+                    }*/
+                });
+            }
+
+
+            return projects;
+        },
     },
     
     watch: {
