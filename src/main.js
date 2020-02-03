@@ -29,6 +29,7 @@ const store = new Vuex.Store({
             name: 'Sketch Book', 
             type: ['draw'],
             preview: true, 
+            show: true,
             desc: '',
           },
           {
