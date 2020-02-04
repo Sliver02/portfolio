@@ -17,17 +17,9 @@ const store = new Vuex.Store({
         ],
         projects: [
           {
-            url: 'urdrugs', 
-            name: 'Know your Drugs', 
-            type: ['draw'],
-            desc: 'Series of vector illustrations born to bring awarness and light on one of the most tabù topic of our society, illegal drugs. <br><br>Often we talk about these substances but most of the time we don’t even know how they look. <br><br>Thorugh weekly Instagram’s posts i tried to bring a visual rapresentation ligthen by a colorfull look, accompanied by a detailed descprition of the drug’s effects and consequences.',
-            preview: true, 
-            show: true,
-          },
-          {
-            url: 'sketch', 
-            name: 'Sketch Book', 
-            type: ['draw'],
+            url: 'hrfestival', 
+            name: 'Hard Rockolo', 
+            type: ['graphic', 'web'],
             desc: '',
             preview: true, 
             show: true,
@@ -49,14 +41,21 @@ const store = new Vuex.Store({
             show: true,
           },
           {
-            url: 'hrfestival', 
-            name: 'Hard Rockolo', 
-            type: ['graphic', 'web'],
+            url: 'sketch', 
+            name: 'Sketch Book', 
+            type: ['draw'],
             desc: '',
-            preview: false, 
+            preview: true, 
             show: true,
           },
-          
+          {
+            url: 'urdrugs', 
+            name: 'Know your Drugs', 
+            type: ['draw'],
+            desc: 'Series of vector illustrations born to bring awarness and light on one of the most tabù topic of our society, illegal drugs. <br><br>Often we talk about these substances but most of the time we don’t even know how they look. <br><br>Thorugh weekly Instagram’s posts i tried to bring a visual rapresentation ligthen by a colorfull look, accompanied by a detailed descprition of the drug’s effects and consequences.',
+            preview: true, 
+            show: true,
+          },
         ],
     },
     mutations: {
@@ -92,14 +91,20 @@ const store = new Vuex.Store({
           if (state.selectedSkill == '') {
             project.show = true;
           } else {
-            // or the multiple types for each prject will be cheked and compared to te selected skill
+            // or each type of the projects will be checked and compared to te selected skill
             for (var i=0; i < project.type.length; i++) {
               if (project.type[i] == state.selectedSkill) {
                 project.show = true;
+                
+                // we break the loop in the case a true value is encountered thorughtout the array
+                // to avoid turning .show false when the project has the last type different from the one selected
+                break;
               } else {
                 project.show = false;
               }
             }
+
+            
           }
         });
 

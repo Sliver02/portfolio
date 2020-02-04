@@ -60,7 +60,7 @@ export default {
             var img = document.getElementById(this.getProjectsPreview[i].url);
 
             img.style.left = (Math.random()*40) + 10 + "vw";
-            img.style.top = (Math.random()*50) + "vh";
+            img.style.top = (Math.random()*40) + "vh";
         }
     },
 
