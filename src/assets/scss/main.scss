@@ -277,20 +277,19 @@ a, a:hover {
         width: $side;
         height: $side;
 
-
         background: url('./assets/img/about/me.jpg') no-repeat center center/120%;
 
         transition: all 1s;
 
         :hover > & {
-            $side: 40vh;
+            // $side: 40vh;
 
-            width: $side;
-            height: $side;
+            // width: $side;
+            // height: $side;
+            margin: 3vh;
 
+            scale: 1.2;
             background-size: 100%;
-
-            margin: 0;
         }
     }
 
@@ -376,7 +375,7 @@ a, a:hover {
     }
 
     &__thumbnail-wrapper {
-        position: relative;
+        // position: relative;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -389,32 +388,36 @@ a, a:hover {
         
         :hover > & {
             .works__thumbnail {
-                width: 100%;
-                height: 100%;
+                // width: 100%;
+                // height: 100%;
+                scale: 1;
     
                 img {
                     opacity: 1;
-                    max-height: 100%;
+                    // max-height: 100%;
+                    scale: 1;
                 }
             }
         }
     }
 
     &__thumbnail {
-        position: absolute;
+        position: relative;
         display: flex;
         justify-content: center;
         align-items: center;
         overflow: hidden;
         
-        width: 90%;
-        height: 90%;
+        width: 100%;
+        height: 100%;
+        scale: 0.9;
 
         transition: all $timing;
 
         img {
             position: absolute;
-            max-height: 120%;
+            max-height: 100%;
+            scale: 1.2;
             opacity: 0.6;
 
             transition: all $timing;
