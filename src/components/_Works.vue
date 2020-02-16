@@ -3,8 +3,8 @@
         <div class="works__wrapper">
 
             <div class="works__project" v-for="(project, index) in projects" :key="index" @click="projectPage(index)">
-                <div class="works__thumbnail-wrapper" >
-                    <div class="works__thumbnail">
+                <div class="works__img-wrapper" >
+                    <div class="works__img">
                         <img :src="require('../assets/img/projects/' + project.url +'/thumbnail.jpg')" alt="">
                     </div>
                 </div>

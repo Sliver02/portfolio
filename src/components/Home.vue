@@ -32,7 +32,7 @@
 
             </div>
 
-            <div class="home__section">
+            <div id="works" class="home__section">
 
                 <works @show='show' ></works>
 

@@ -1,11 +1,51 @@
 // smartphone
+@media (max-width: 639px) {
+    
+    body {
+
+        line-height: 1.6;
+    }
+
+    .works {
+        align-items: flex-start;
+        &__wrapper {
+            --columns: 1;
+        }
+    }
+
+}
+
+
+
+// smartphone
 @media (min-width: 640px) and (max-width: 767px) {
+
+    .works {
+        &__wrapper {
+            --columns: 2;
+        }
+    }
 
 }
 
 //tablet
 @media (min-width: 768px) and (max-width: 950px) {
 
-    
+    .works {
+        &__wrapper {
+            --columns: 3;
+        }
+    }
+
+}
+
+//whide
+@media (min-width: 1400px) {
+
+    .works {
+        &__wrapper {
+            --columns: 7;
+        }
+    }
 
 }
