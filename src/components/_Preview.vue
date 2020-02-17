@@ -59,8 +59,8 @@ export default {
         for(var i=0; i < this.getProjectsPreview.length; i++) {
             var img = document.getElementById(this.getProjectsPreview[i].url);
 
-            img.style.left = (Math.random()*40) + 10 + "vw";
-            img.style.top = (Math.random()*40) + "vh";
+            img.style.left = (Math.random()*40) + 15 + "vw";
+            img.style.top = (Math.random()*50) + 10 + "vh";
         }
     },
 
