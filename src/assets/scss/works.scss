@@ -8,9 +8,11 @@
 }
 
 .works {
+    @include flex-center();
+    
     $timing: 0.8s;
 
-    @include flex-center();
+    
     position: relative;
 
     width: 100%;

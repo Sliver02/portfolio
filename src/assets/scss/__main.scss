@@ -29,6 +29,10 @@ html, body {
     overflow: hidden;
 }
 
+h1,h2,h3 {
+    line-height: 1;
+}
+
 /* Hide scrollbar for Chrome, Safari and Opera */
 .example::-webkit-scrollbar {
 display: none;
@@ -168,21 +172,23 @@ a, a:hover {
     display: flex;
 
     width: $slider-width;
+    height: 100vh;
     
     transition: transform 1s ease-in-out;
     // transform: translate3d($section-width, 0, 0);
     transform: translate3d($slide-x, 0, 0);
     
     &__section {
-        display: flex;
-        justify-content: center;
+        @include flex-center();
         overflow: hidden;
-        align-items: center;
+
+        padding: 80px 0;
 
         width: $section-portion;
-        height: 100vh;
+        height: calc(100% - $navbar-height);
+        margin-top: $navbar-height;
 
-        padding: 120px 0;
+        // padding: 120px 0;
     }
 }
 

@@ -3,10 +3,11 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: left;
-    position: relative;
+    // position: relative;
 
     width: 80%;
     height: 60%;
+    // min-height: 800px;
 
     // &__text-wrapper {
     //     display: flex;
@@ -26,7 +27,7 @@
         z-index: 2;
 
         mix-blend-mode: difference;
-
+        margin-bottom: 40px;
     }
     
     &__link {

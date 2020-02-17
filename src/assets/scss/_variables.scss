@@ -4,6 +4,7 @@
 $pages: var(--pages);
 $scrollbar-width: var(--scrollbarWidth);
 $slide-x: var(--slideX);
+$navbar-height: 67px;
 
 // Main pallette
 $primary: red;
@@ -24,4 +25,8 @@ $section-portion: calc(100% / #{$pages});
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+@mixin section-padding {
+    padding: 120px 0;
 }
