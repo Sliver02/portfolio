@@ -6,10 +6,107 @@
         line-height: 1.6;
     }
 
+    .navbar {
+        background: $trasparent-dark-gray;
+    
+        display: flex;
+        position: fixed;
+        width: 100%;
+        z-index: 2;
+    
+        align-items: center;
+        justify-content: space-between;
+    
+        &__logo {
+            
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+    
+            img {
+                width: 50px;
+                margin: 0 10px;
+                transition: transform 0.2s ease-out;
+            }
+    
+            &:hover{
+                img{ 
+                    transform: rotate(-10deg);
+                }
+            }
+        }
+
+        &__menu, .nav li, .nav__btn {
+            width: 100%;
+        }
+    
+        .nav {
+
+            &__btn {
+                position: relative;
+                display: inline-block;
+                padding: 1.5rem;
+    
+                
+                cursor: pointer;
+                
+                transition: all 0.3s ease;
+    
+                &:after {
+                    content: '';
+    
+                    width: 100%;
+                    height: 0;
+    
+                    background: white;
+    
+                    position: absolute;
+                    left: 0;
+                    bottom: 0;
+                    z-index: 2;
+    
+                }
+    
+                &:hover, &.is-active {
+                    background: lighten($dark-gray, 2%);
+                }
+    
+                &.is-active {
+                    transition: all 1s ease;
+    
+                    padding: 1.5rem 2rem;
+    
+                    &::after {
+                        height: 2px;
+                    }
+                }
+            }
+        }
+    }
+
     .works {
         align-items: flex-start;
         &__wrapper {
             --columns: 1;
+        }
+    }
+
+    .about {
+
+        &__img {
+            $side: 250px;
+            
+            width: $side;
+            height: $side;
+        }
+
+        &__desc {
+            text-align: right;
+    
+            margin-top: 20vh;
+            margin-right: 40px;
+    
         }
     }
 
@@ -18,6 +115,8 @@
 
 // tablet and lower
 @media (max-width: 949px) {
+
+    
 
     .home {
 
@@ -43,12 +142,21 @@
         .container {
             flex-direction: column;
             align-items: flex-start;
+
+            padding: 0 30px;
         }
 
         &__desc {
             text-align: left;
             margin: 0;
             order: 2;
+
+            h1 {
+                margin-bottom: 1rem;
+    
+                font-size: 3rem;
+                line-height: 0.6;
+            }
         }
 
         &__img {

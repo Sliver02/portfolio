@@ -3,10 +3,11 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: left;
-    // position: relative;
 
     width: 80%;
     height: 60%;
+    // position: relative;
+
     // min-height: 800px;
 
     // &__text-wrapper {
@@ -60,6 +61,7 @@
 
     &__img-wrapper {
         position: absolute;
+        overflow: hidden;
         
         z-index: 1;
         top: 0;

@@ -58,17 +58,18 @@ a, a:hover {
     background: $trasparent-dark-gray;
 
     display: flex;
+    flex-wrap: wrap;
     position: fixed;
     width: 100%;
     z-index: 2;
 
     align-items: center;
     justify-content: space-between;
-    padding: 0 2rem;
 
     &__logo {
         
         font-size: 12px;
+        margin: 1.6rem 2rem;
         display: flex;
         align-items: center;
         justify-content: center;

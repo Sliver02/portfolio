@@ -1,5 +1,4 @@
 <template>
-    <div>
         <div class="preview">
 
             <!-- <div class="preview__text-wrapper"> -->
@@ -18,15 +17,15 @@
                 </div>
             <!-- </div> -->
 
+            <div class="preview__img-wrapper" >
+                <transition-group name="fadeIn">
+                    <img class="img-drag" v-for="(project, index) in getProjectsPreview" :key="index" v-show="project.show"
+                    :id="project.url" :src="require('../assets/img/projects/' + project.url +'/thumbnail.jpg')" alt="" 
+                    @mousedown="startDrag(project.url)" @mousemove="doDrag" @mouseup="stopDrag">
+                </transition-group>
+            </div>
         </div>
-        <div class="preview__img-wrapper" >
-            <transition-group name="fadeIn">
-                <img class="img-drag" v-for="(project, index) in getProjectsPreview" :key="index" v-show="project.show"
-                :id="project.url" :src="require('../assets/img/projects/' + project.url +'/thumbnail.jpg')" alt="" 
-                @mousedown="startDrag(project.url)" @mousemove="doDrag" @mouseup="stopDrag">
-            </transition-group>
-        </div>
-    </div>
+
 </template>
 
 <script>
