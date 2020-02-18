@@ -131,8 +131,6 @@ export default {
                 ev.preventDefault();
             }
         },
-
-        
     },
 
     computed: {

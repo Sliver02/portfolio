@@ -14,7 +14,7 @@
                 
             </div>
             <div class="about__img"></div>
-            <div class="social">
+            <div class="about__social">
                 <a href="https://www.linkedin.com/in/jacopo-panzera-b3a3b1167/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
                 <a href="https://www.behance.net/panzerajac5508" target="_blank"><i class="fab fa-behance"></i></a>
                 <a href="https://www.instagram.com/jac.pan/" target="_blank"><i class="fab fa-instagram"></i></a>

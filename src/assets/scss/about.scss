@@ -12,7 +12,7 @@
     }
 
     &__img {
-        $side: 35vh;
+        $side: 320px;
         margin: 5vh;
 
         width: $side;
@@ -58,7 +58,7 @@
 
     }
     
-    .social {
+    &__social {
         font-size: 2.2rem;
         margin: 18px 0;
         position: absolute;
