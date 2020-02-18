@@ -21,16 +21,19 @@
 
     .home {
 
-        height: auto;
+        // height: auto;
         
         &__section {
-            align-items: flex-start;
-            overflow-y: auto;
+            // overflow-y: auto;
             // padding: 120px 0;
         }
     }
     
     .about {
+        align-self: flex-start;
+        margin-top: $mobile-section-p;
+        padding-bottom: $mobile-section-p;
+
         .container {
             flex-direction: column;
             align-items: flex-start;
@@ -43,11 +46,13 @@
         }
 
         &__img {
-            margin: 5vh 0;
+            margin: 0;
+            margin-bottom: 5vh;
             order: 1;
 
             :hover > & {
-                margin: 5vh 0;
+                margin: 0;
+                margin-bottom: 5vh;
     
                 transform: scale(1);
                 background-size: 120%;
@@ -61,6 +66,12 @@
             right: 10px;
             bottom: 0;
         }
+    }
+
+    .works {
+        align-self: flex-start;
+        margin-top: $mobile-section-p;
+        padding-bottom: $mobile-section-p;
     }
 
 }

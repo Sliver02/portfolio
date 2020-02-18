@@ -1,22 +1,24 @@
 <template>
-    <div class="preview">
+    <div>
+        <div class="preview">
 
-        <!-- <div class="preview__text-wrapper"> -->
-            <div class="preview__link-wrapper">
-                <a v-for="(skill, index) in skills" :key="index" href="#" class="preview__link" 
-                :class="{'is-active': selectedSkill === skill.type }" @click="switchSkill(skill.type)">
-                    {{skill.name}}
-                </a>
-            </div>
+            <!-- <div class="preview__text-wrapper"> -->
+                <div class="preview__link-wrapper">
+                    <a v-for="(skill, index) in skills" :key="index" href="#" class="preview__link" 
+                    :class="{'is-active': selectedSkill === skill.type }" @click="switchSkill(skill.type)">
+                        {{skill.name}}
+                    </a>
+                </div>
 
-            <div class="preview__desc">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                Tenetur explicabo illo alias repellat quam quas accusantium mollitia sed molestias! 
-                Aliquid itaque aspernatur dolore totam molestias cumque! Esse culpa dolores quidem, 
-                ex quod, incidunt labore quibusdam recusandae, iste ipsum dolorum. Velit?</p>
-            </div>
-        <!-- </div> -->
+                <div class="preview__desc">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                    Tenetur explicabo illo alias repellat quam quas accusantium mollitia sed molestias! 
+                    Aliquid itaque aspernatur dolore totam molestias cumque! Esse culpa dolores quidem, 
+                    ex quod, incidunt labore quibusdam recusandae, iste ipsum dolorum. Velit?</p>
+                </div>
+            <!-- </div> -->
 
+        </div>
         <div class="preview__img-wrapper" >
             <transition-group name="fadeIn">
                 <img class="img-drag" v-for="(project, index) in getProjectsPreview" :key="index" v-show="project.show"

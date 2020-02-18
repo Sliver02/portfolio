@@ -177,14 +177,15 @@ a, a:hover {
     
     &__section {
         @include flex-center();
-        overflow: hidden;
+        overflow-x: hidden;
+        overflow-y: auto;
         position: relative;
 
-        padding: 80px 0;
+        // padding: 80px 0;
 
         width: $section-portion;
-        height: calc(100% - #{$navbar-height});
-        margin-top: $navbar-height;
+        height: 100%;
+        // margin-top: $navbar-height;
 
         // padding: 120px 0;
     }
