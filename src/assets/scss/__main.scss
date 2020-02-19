@@ -55,91 +55,122 @@ a, a:hover {
 
 // Components
 .navbar {
-    background: $trasparent-dark-gray;
-
-    display: flex;
-    flex-wrap: wrap;
+    // display: flex;
+    // flex-wrap: wrap;
+    z-index: 2;
     position: fixed;
     width: 100%;
-    z-index: 2;
 
-    align-items: center;
-    justify-content: space-between;
-
-    &__logo {
-        
-        font-size: 12px;
-        margin: 1.6rem 2rem;
+    &__wrap {
         display: flex;
-        align-items: center;
-        justify-content: center;
+        flex-wrap: wrap;
+        position: relative;
+        
+        width: 100%;
+    
+        background: $trasparent-dark-gray;
 
-        img {
-            width: 50px;
-            margin: 0 10px;
-            transition: transform 0.2s ease-out;
-        }
-
-        &:hover{
-            img{ 
-                transform: rotate(-10deg);
-            }
-        }
-
-        // h1 {
-        //     &::before {
-        //         content: '';
-        //         background: url('./assets/icons/logo.svg') no-repeat center center/cover;;
-        //         height: 100%;
-        //         width: 60px;
-        //     }
-        // }
+        // align-items: center;
+        justify-content: space-between;
     }
 
-    .nav {
-        display: flex;
-        list-style: none;
+        &__logo, &__burger {
+            z-index: 2;
+        }
 
-        &__btn {
-            position: relative;
-            display: inline-block;
-            padding: 1.5rem;
-
+        &__logo {
             
-            cursor: pointer;
-            
-            transition: all 0.3s ease;
+            font-size: 12px;
+            margin: 1.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
 
-            &:after {
-                content: '';
-
-                width: 100%;
-                height: 0;
-
-                background: white;
-
-                position: absolute;
-                left: 0;
-                bottom: 0;
-                z-index: 2;
-
+            img {
+                width: 50px;
+                margin: 0 10px;
+                transition: transform 0.2s ease-out;
             }
 
-            &:hover, &.is-active {
-                background: lighten($dark-gray, 2%);
+            &:hover, &:active, &:focus {
+                img{ 
+                    transform: rotate(-10deg);
+                }
             }
 
-            &.is-active {
-                transition: all 1s ease;
+            // h1 {
+            //     &::before {
+            //         content: '';
+            //         background: url('./assets/icons/logo.svg') no-repeat center center/cover;;
+            //         height: 100%;
+            //         width: 60px;
+            //     }
+            // }
+        }
 
-                padding: 1.5rem 2rem;
+        &__menu {
+            display: flex;
+            
+            .nav {
+                display: flex;
+                list-style: none;
+        
+                &__btn {
+                    @include flex-center;
+                    position: relative;                    
 
-                &::after {
-                    height: 2px;
+                    height: 100%;
+                    padding: 0 1.5rem;
+                    cursor: pointer;
+                    
+                    transition: all 0.3s ease;
+        
+                    &:after {
+                        content: '';
+        
+                        width: 100%;
+                        height: 0;
+        
+                        background: white;
+        
+                        position: absolute;
+                        left: 0;
+                        bottom: 0;
+                        z-index: 2;
+        
+                    }
+        
+                    &:hover, &:active, &:focus, &.is-active {
+                        background: lighten($trasparent-dark-gray, 2%);
+                    }
+        
+                    &.is-active {
+                        transition: all 1s ease;
+        
+                        padding: 0 2rem;
+        
+                        &::after {
+                            height: 2px;
+                        }
+                    }
                 }
             }
         }
-    }
+
+        
+        &__burger {
+            @include flex-center;
+            font-size: 3rem;
+            margin: auto 2rem;
+            cursor: pointer;
+            transition: transform 0.3s;
+
+            display: none;
+
+            &:active, &:focus {
+                transform: scale(0.8);
+            }
+        }
 }
 
 .btn {

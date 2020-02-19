@@ -1,4 +1,10 @@
 // smartphone and lower
+
+@media (min-width: 639px) {
+
+    
+}
+
 @media (max-width: 639px) {
     
     body {
@@ -7,20 +13,13 @@
     }
 
     .navbar {
-        background: $trasparent-dark-gray;
-    
-        display: flex;
-        position: fixed;
-        width: 100%;
-        z-index: 2;
-    
-        align-items: center;
-        justify-content: space-between;
-    
+        
         &__logo {
             
             font-size: 12px;
             display: flex;
+            margin: 1.2rem 2rem;
+
             align-items: center;
             justify-content: center;
     
@@ -30,7 +29,7 @@
                 transition: transform 0.2s ease-out;
             }
     
-            &:hover{
+            &:hover, &:active, &:focus {
                 img{ 
                     transform: rotate(-10deg);
                 }
@@ -38,50 +37,64 @@
         }
 
         &__menu, .nav li, .nav__btn {
-            width: 100%;
+            // width: 100%;
         }
-    
-        .nav {
 
-            &__btn {
-                position: relative;
-                display: inline-block;
-                padding: 1.5rem;
-    
-                
-                cursor: pointer;
-                
-                transition: all 0.3s ease;
-    
-                &:after {
-                    content: '';
-    
+        &__menu {
+            @include flex-center;
+            position: absolute;
+            top: 0;
+            width: 100%;
+            height: 100vh;
+            background: $trasparent-dark-gray;
+            font-size: 1.2rem;
+
+            transition: transform 0.5s, opacity 0.5s;
+            transform: translateY(100vh);
+            opacity: 0;
+
+            &.is-open {
+                transform: translateY(0);
+                opacity: 1;
+            }
+
+            .nav {
+                @include flex-center;
+                flex-direction: column;
+                width: 40%;
+                height: 40%;
+
+                &__btn {
                     width: 100%;
-                    height: 0;
-    
-                    background: white;
-    
-                    position: absolute;
-                    left: 0;
-                    bottom: 0;
-                    z-index: 2;
-    
-                }
-    
-                &:hover, &.is-active {
-                    background: lighten($dark-gray, 2%);
-                }
-    
-                &.is-active {
-                    transition: all 1s ease;
-    
-                    padding: 1.5rem 2rem;
-    
+
+                    margin: 0.5rem 0;
+                    background: $trasparent-dark-gray;
+
+                    border: 1px solid #ffffff;
+
                     &::after {
-                        height: 2px;
+                        display: none;
+                    }
+
+                    &:hover, &:active, &:focus, &.is-active {
+                        background: white;
+                        color: $dark-gray;
+
+                        // &::after {
+                        //     height: 100%;
+                        //     width: 3px;
+                        // }
                     }
                 }
             }
+
+            
+        }
+    
+        &__burger {
+
+            display: block;
+
         }
     }
 
@@ -106,18 +119,17 @@
     
             margin-top: 20vh;
             margin-right: 40px;
-    
         }
     }
 
 }
 
 
+
+
 // tablet and lower
 @media (max-width: 949px) {
-
     
-
     .home {
 
         // height: auto;
@@ -143,7 +155,7 @@
             flex-direction: column;
             align-items: flex-start;
 
-            padding: 0 30px;
+            // padding: 0 30px;
         }
 
         &__desc {

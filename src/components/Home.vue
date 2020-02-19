@@ -2,20 +2,28 @@
 
     <div id="main" :style="scssVars">
         <div class="navbar">
-            <a class="navbar__logo" href=".">
-                <img :src="require('../assets/img/icons/logo.svg')" alt="">
-                <h1>jac.pan</h1>
-            </a>
-            <div class="navbar__menu">
-                <ul class="nav">
-                    <!-- <li v-for="(page, index) in pages" :key="index">
-                        <a :href="'#'+page" class="nav__btn" @click="active = page" :class="{'is-active': active === page }">.{{page}}</a>
-                    </li> -->
+            <div class="navbar__wrap">
+                <a class="navbar__logo" href=".">
+                    <img :src="require('../assets/img/icons/logo.svg')" alt="">
+                    <h1>jac.pan</h1>
+                </a>
 
-                    <li v-for="(page, index) in pages" :key="index">
-                        <div class="nav__btn" :class="{'is-active': pageIndex === index }" @click="switchPage(index)">.{{page}}</div>
-                    </li>
-                </ul>
+                <i class="navbar__burger material-icons" @click="toggleMenu()">menu</i>
+
+                <div class="navbar__menu" :class="{'is-open': showMenu === true}">
+                    <ul class="nav">
+                        <!-- <li v-for="(page, index) in pages" :key="index">
+                            <a :href="'#'+page" class="nav__btn" @click="active = page" :class="{'is-active': active === page }">.{{page}}</a>
+                        </li> -->
+
+                        <li v-for="(page, index) in pages" :key="index" class="nav__btn" :class="{'is-active': pageIndex === index }" @click="switchPage(index)">
+                            <span>
+                                .{{page}}
+                            </span>
+                        </li>
+
+                    </ul>
+                </div>
             </div>
         </div>
         
@@ -77,12 +85,14 @@ export default {
     methods: {
         ...mapMutations([
             'switchPage',
+            'toggleMenu',
         ]),
     },
 
     computed: {
         ...mapState([
             'pageIndex',
+            'showMenu',
         ]),
         scssVars() {
             return {

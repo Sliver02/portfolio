@@ -31,7 +31,6 @@
         // The amount of columns
         --columns: 4;
         
-        
         // This is the calculation for the row height.   
         $row-size: calc(( var(--content-width) - (var(--gutter) * (var(--columns) - 1))) / var(--columns));
         
@@ -45,8 +44,6 @@
 
         grid-column-gap: var(--gutter);
         grid-row-gap: var(--gutter);
-
-        
     }
 
     &__project {
@@ -73,7 +70,7 @@
         overflow: hidden;
         cursor: pointer;
         
-        :hover > & {
+        :hover > &,:active > &,:focus > & {
             .works__img {
                 // width: 100%;
                 // height: 100%;
