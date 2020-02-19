@@ -1,12 +1,21 @@
 .works {
     @include flex-center();
+    flex-direction: column;
     
     $timing: 0.8s;
 
     
     position: relative;
 
-    width: 100%;
+    width: 80%;
+
+    h1 {
+        margin-bottom: 1.2rem;
+        font-family: 'Roboto Mono', monospace;
+        font-size: 3rem;
+
+        align-self: flex-start;
+    }
 
     &__wrapper {
         width: 80%;

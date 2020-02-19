@@ -18,11 +18,18 @@
             <!-- </div> -->
 
             <div class="preview__img-wrapper" >
-                <transition-group name="fadeIn">
-                    <img class="img-drag" v-for="(project, index) in getProjectsPreview" :key="index" v-show="project.show"
-                    :id="project.url" :src="require('../assets/img/projects/' + project.url +'/thumbnail.jpg')" alt="" 
-                    @mousedown="startDrag(project.url)" @mousemove="doDrag" @mouseup="stopDrag">
-                </transition-group>
+                <div v-if="mobile">
+                    <img class="img-bg" :src="require('../assets/img/projects/' + getProjectsPreview[3].url +'/thumbnail.jpg')" alt="">
+                </div>
+
+                <div v-else>
+                    <transition-group name="fadeIn">
+                        <img class="img-drag" v-for="(project, index) in getProjectsPreview" :key="index" v-show="project.show"
+                        :id="project.url" :src="require('../assets/img/projects/' + project.url +'/thumbnail.jpg')" alt="" 
+                        @mousedown="startDrag(project.url)" @mousemove="doDrag" @mouseup="stopDrag">
+                    </transition-group>
+                </div>
+
             </div>
         </div>
 
@@ -50,19 +57,25 @@ export default {
             },
             viewportWidth: null,
             viewportHeight: null,
-            asdasd: null,
+            mobile: false,
         }
     },
 
     mounted() {
 
         // image position scrambler
-        for(var i=0; i < this.getProjectsPreview.length; i++) {
-            var img = document.getElementById(this.getProjectsPreview[i].url);
+        this.getProjectsPreview.forEach((preview) => {
+            var img = document.getElementById(preview.url);
 
             img.style.left = (Math.random()*40) + 15 + "vw";
             img.style.top = (Math.random()*50) + 10 + "vh";
-        }
+        });
+
+        this.mobileCheck();
+
+        window.addEventListener('resize', () => {
+            this.mobileCheck();
+        });
     },
 
     methods: {
@@ -132,6 +145,14 @@ export default {
                 ev.preventDefault();
             }
         },
+
+        mobileCheck() {
+            if (window.innerWidth < 640) {
+                this.mobile = true;
+            } else {
+                this.mobile = false;
+            }
+        }
     },
 
     computed: {

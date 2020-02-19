@@ -1,5 +1,6 @@
 <template>
     <div class="works">
+        <h1>Works</h1>
         <div class="works__wrapper">
 
             <div class="works__project" v-for="(project, index) in projects" :key="index" @click="projectPage(index)">
