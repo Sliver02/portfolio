@@ -12,6 +12,10 @@
         line-height: 1.6;
     }
 
+    .preview {
+
+    }
+
     .navbar {
         
         &__logo {
@@ -142,11 +146,16 @@
         }
     }
 
-    .about, .works, .contact {
+    .about, .works, .contact, .preview {
         margin-top: $mobile-section-p;
         padding-bottom: $mobile-section-p;
 
         align-self: flex-start;
+    }
+
+    .preview {
+        width: 100%;
+        height: 100%;
     }
     
     .about {
