@@ -3,8 +3,8 @@
     flex-direction: column;
     justify-content: center;
 
-    // width: 80%;
-    max-width: 800px;
+    min-width: 60%;
+    // max-width: 800px;
     
     label {
         display: block;
@@ -41,8 +41,8 @@
 
     &__form {
         display: grid;
-        grid-template-columns: repeat(4, auto);
-        // grid-template-row: repeat(3, auto);
+        grid-template-columns: repeat(2, auto);
+        grid-template-rows: repeat(5, auto);
         grid-gap: 14px;
 
         width: 100%;
@@ -50,26 +50,25 @@
 
     &__name {
         grid-column-start: 1;
-        grid-column-end: 4;
-    }
-
-    &__title {
-
-    }
-
-    &__email {
-        grid-column-start: 1;
         grid-column-end: 3;
     }
 
+    &__email {
+
+    }
+
     &__phone {
-        grid-column-start: 3;
-        grid-column-end: 5;
+
     }
 
     &__why {
         grid-column-start: 1;
-        grid-column-end: 5;
+        grid-column-end: 3;
+    }
+
+    &__what {
+        grid-column-start: 1;
+        grid-column-end: 3;
 
         textarea {
             min-height: 25vh;

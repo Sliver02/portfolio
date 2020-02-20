@@ -11,11 +11,6 @@
                 <input name="name" id="name" type="text">
             </div>
 
-            <div class="contact__title">
-                <label for="title">.title</label>
-                <input name="role" id="role" type="text">
-            </div>
-
             <div class="contact__email">
                 <label for="email">.e-mail</label>
                 <input name="email" id="email" type="text">
@@ -27,17 +22,26 @@
             </div>
 
             <div class="contact__why">
-                <label for="why">.what can I do for you</label>
-                <textarea name="why" id="why" type="text"></textarea>
+                <label for="why">.why</label>
+                <input name="role" id="role" type="text">
             </div>
 
-            <div class="captcha">
+            <div class="contact__what">
+                <label for="what">.what can I do for you</label>
+                <textarea name="what" id="why" type="text"></textarea>
+            </div>
+
+            <!-- <div class="captcha">
                 <div data-netlify-recaptcha='true'></div>
-            </div>
+            </div> -->
 
-            <input class="btn" type="submit" value="Send Message">
+            <input class="btn" type="submit" value=".send">
             <!-- <div class="btn" :class="{'btn--active': expand === true}" @click="expandPrev()">.see more</div> -->
         </form>
+
+        <div class="copyright">
+            Copyright© 2020 - Jacopo Panzera <img :src="require('../assets/img/icons/logo.svg')" alt="">
+        </div>
     </div>
 </template>
 

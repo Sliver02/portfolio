@@ -226,6 +226,19 @@ a, a:hover {
     }
 }
 
+.copyright {
+    padding: 20px 40px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+
+    font-size: 0.8rem;
+
+    img {
+        width: 0.8rem;
+    }
+}
+
 
 @import 'mobile';
 

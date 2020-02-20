@@ -207,6 +207,40 @@
         }
     }
 
+    .contact {
+        &__form {
+            grid-template-columns: 1fr;
+            grid-template-rows: repeat(7, auto);
+        }
+
+        &__name {
+            grid-column-start: 1;
+            grid-column-end: 2;
+        }
+    
+        
+    
+        &__email {
+            grid-column-start: 1;
+            grid-column-end: 2;
+        }
+    
+        &__phone {
+            grid-column-start: 1;
+            grid-column-end: 2;
+        }
+
+        &__why {
+            grid-column-start: 1;
+            grid-column-end: 2;
+        }
+    
+        &__what {
+            grid-column-start: 1;
+            grid-column-end: 2;
+        }
+    }
+
 }
 
 
