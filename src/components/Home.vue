@@ -134,9 +134,6 @@ export default {
 
     watch: {
         
-        showProject() {
-            
-        }
     }
 }
 </script>
