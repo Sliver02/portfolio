@@ -3,7 +3,7 @@
         <h1>Works</h1>
         <div class="works__wrapper">
 
-            <div class="works__project" v-for="(project, index) in projects" :key="index" @click="projectPage(index)">
+            <div class="works__project" v-for="(project, index) in projects" :key="index" @click="switchProject(index)">
                 <div class="works__img-wrapper" >
                     <div class="works__img">
                         <img :src="require('../assets/img/projects/' + project.url +'/thumbnail.jpg')" alt="">
@@ -17,38 +17,32 @@
 
         </div>
         
-        <transition name="fadeRigt">
-            <projectPage v-if="showProject == true" :selectedProject="selectedProject" ></projectPage>
-        </transition>
+        
     </div>
 </template>
 
 <script>
-import projectPage from './_Project';
 import {mapState, mapMutations} from 'vuex';
 
 export default {
     components: {
-        projectPage,
     },
 
     data() {
         return {
-            selectedProject: 0,
+            // selectedProject: 0,
         }
     },
 
     methods: {
         ...mapMutations([
             'openProject',
+            'switchProject',
         ]),
-        projectPage(index) {
-            console.log(index);
-            console.log(this.selectedProject);
-
-            this.selectedProject = index;
-            this.openProject();
-        },
+        // projectPage(index) {
+        //     this.switchProject(index);
+        //     this.openProject();
+        // },
     },
 
     computed: {

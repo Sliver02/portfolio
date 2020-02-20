@@ -53,7 +53,9 @@
             </div>
         </div>
 
-
+        <transition name="fadeRigt">
+            <projectPage v-if="showProject == true" :selectedProject="selectedProject" ></projectPage>
+        </transition>
 
     </div>
 
@@ -64,6 +66,7 @@ import preview from './_Preview.vue'
 import about from './_About.vue'
 import works from './_Works.vue'
 import contact from './_Contact.vue'
+import projectPage from './_Project';
 import {mapState, mapMutations} from 'vuex';
 
 export default {
@@ -72,6 +75,7 @@ export default {
         about,
         works,
         contact,
+        projectPage,
     },
 
     data() {
@@ -81,6 +85,9 @@ export default {
         }
     },
 
+    mounted() {
+        
+    },
 
     methods: {
         ...mapMutations([
@@ -93,6 +100,8 @@ export default {
         ...mapState([
             'pageIndex',
             'showMenu',
+            'showProject',
+            'selectedProject',
         ]),
         scssVars() {
             return {
@@ -101,9 +110,6 @@ export default {
                 '--scrollbarWidth': (this.getScrollbarWidth + 'px'),
             }
         },
-    },
-
-    watch: {
         getScrollbarWidth() {
              // Creating invisible container
             const outer = document.createElement('div');
@@ -124,6 +130,13 @@ export default {
 
             return scrollbarWidth;
         },
+    },
+
+    watch: {
+        
+        showProject() {
+            
+        }
     }
 }
 </script>

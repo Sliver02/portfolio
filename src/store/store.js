@@ -6,6 +6,7 @@ export const store = new Vuex.Store({
     state: {
         pageIndex: 0,
         showMenu: false,
+        selectedProject: 0,
         showProject: false,
         selectedSkill: '',
         skills: [
@@ -67,12 +68,17 @@ export const store = new Vuex.Store({
         state.showProject = false;
       },
       switchPage(state, index) {
+        console.log('scemo');
         state.showMenu = false;
         state.showProject = false;
         state.pageIndex = index;
       },
       toggleMenu(state) {
         state.showMenu = !state.showMenu;
+      },
+      switchProject(state, index) {
+        state.showProject = true;
+        state.selectedProject = index;
       },
       switchSkill(state, type) {
         /** it changes at global level the selected skill in _Preview.vue
