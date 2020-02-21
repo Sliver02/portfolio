@@ -95,7 +95,7 @@ export default {
             'toggleMenu',
         ]),
         blockScroll(newValue) {
-            console.log(newValue);
+            // console.log(newValue);
             if (newValue === true) {
                 document.querySelector('html').style.overflowY = 'hidden';
             } else {

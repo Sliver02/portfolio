@@ -19,7 +19,9 @@
 
             <div class="preview__img-wrapper" >
                 <div v-if="mobile">
-                    <img class="img-bg" :src="require('../assets/img/projects/' + getProjectsPreview[3].url +'/thumbnail.jpg')" alt="">
+                    <transition name="fadeIn">
+                        <img class="img-bg" :src="require('../assets/img/projects/' + mobileBackground +'/thumbnail.jpg')" alt="">
+                    </transition>
                 </div>
 
                 <div v-else>
@@ -83,16 +85,13 @@ export default {
             'switchSkill',
             'switchPreview',
         ]),
-        
-        viewport() {
-            var e = window, a = 'inner';
 
-            if ( !( 'innerWidth' in window ) ) {
-                a = 'client';
-                e = document.documentElement || document.body;
+        mobileCheck() {
+            if (window.innerWidth < 640) {
+                this.mobile = true;
+            } else {
+                this.mobile = false;
             }
-
-            return { width : e[ a+'Width' ] , height : e[ a+'Height' ] }
         },
 
         startDrag(index, ev) {
@@ -145,14 +144,6 @@ export default {
                 ev.preventDefault();
             }
         },
-
-        mobileCheck() {
-            if (window.innerWidth < 640) {
-                this.mobile = true;
-            } else {
-                this.mobile = false;
-            }
-        },
     },
 
     computed: {
@@ -163,6 +154,43 @@ export default {
         ...mapGetters([
             'getProjectsPreview',
         ]),
+        viewport() {
+            var e = window, a = 'inner';
+
+            if ( !( 'innerWidth' in window ) ) {
+                a = 'client';
+                e = document.documentElement || document.body;
+            }
+
+            return { width : e[ a+'Width' ] , height : e[ a+'Height' ] }
+        },
+        mobileBackground() {
+            const selected = this.selectedSkill;
+            const backArray = [];
+
+            // console.log(this.getProjectsPreview[0].url)
+
+            if (selected == ''){
+
+                return this.getProjectsPreview[3].url;
+
+            } else {
+                this.getProjectsPreview.forEach((project, index) => {
+                    for (var i=0; i < project.type.length; i++) {
+                        if (project.type[i] == selected) {
+                            // console.log(this.getProjectsPreview[index]);
+
+                            backArray.push(this.getProjectsPreview[index].url);
+                            console.log(backArray);
+
+                            break;
+                        }
+                    }
+                });
+
+                return backArray[Math.floor(Math.random() * backArray.length)];
+            }
+        }
     },
     
     watch: {

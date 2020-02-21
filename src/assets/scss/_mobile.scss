@@ -134,7 +134,7 @@
             font-size: 2.6rem;
 
             &:hover,&.is-active {
-                transform: translateX(0);
+                transform: translateX(10px);
             }
             
             &.is-active {
@@ -147,9 +147,9 @@
             
             @include flex-center();
 
-            img {
-                min-width: 100%;
-                min-height: 100%;
+            .img-bg {
+                // min-width: 100%;
+                min-height: auto;
                 max-width: none;
                 max-height: none;
                 opacity: 0.1;
