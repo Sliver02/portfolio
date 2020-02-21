@@ -7,7 +7,7 @@
 
 @media (max-width: 639px) {
     
-    body,html {
+    body{
 
         line-height: 1.6;
         overflow-y: auto;
@@ -54,7 +54,7 @@
             background: $trasparent-dark-gray;
             font-size: 1.2rem;
 
-            transform: translateY(100vh);
+            transform: translatex(-100vw);
             opacity: 0;
             transition: transform 0.5s, opacity 0.5s;
 
@@ -114,7 +114,7 @@
 
         &__section {
             width: 100vw;
-            height: auto;
+            min-height: 100vh;
 
             overflow: hidden;
         }
@@ -230,7 +230,7 @@
             grid-column-end: 2;
         }
 
-        &__why {
+        &__title {
             grid-column-start: 1;
             grid-column-end: 2;
         }

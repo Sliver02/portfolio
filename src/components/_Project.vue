@@ -17,7 +17,7 @@
                 <p v-else v-html="project.desc">
                 </p>
 
-                <div class="btn" @click="closeProject">.close</div>
+                <div class="btn" @click="toggleProject">.close</div>
             </div>
         </div>
     </div>
@@ -47,7 +47,7 @@ export default {
 
     methods: {
         ...mapMutations([
-            'closeProject',
+            'toggleProject',
         ]),
     },
 

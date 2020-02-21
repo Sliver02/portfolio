@@ -21,14 +21,14 @@
                 <input name="phone" id="phone" type="text">
             </div>
 
-            <div class="contact__why">
-                <label for="why">.why</label>
+            <div class="contact__title">
+                <label for="title">.title</label>
                 <input name="role" id="role" type="text">
             </div>
 
             <div class="contact__what">
                 <label for="what">.what can I do for you</label>
-                <textarea name="what" id="why" type="text"></textarea>
+                <textarea name="what" id="what" type="text"></textarea>
             </div>
 
             <!-- <div class="captcha">

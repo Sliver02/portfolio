@@ -1,9 +1,9 @@
 .fadeRigt-enter-active, .fadeRigt-leave-active {
-    transition: opacity 0.5s, transform 1s;
+    transition: opacity 0.5s, transform 0.5s;
 }
 .fadeRigt-enter, .fadeRigt-leave-to /* .fadeRigt-leave-active below version 2.1.8 */ {
-    transform: translateX(100vh);
     opacity: 0;
+    transform: translateX(100vh);
 }
 
 .fadeIn-enter-active, .fadeIn-leave-active {

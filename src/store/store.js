@@ -90,17 +90,7 @@ export const store = new Vuex.Store({
         ],
     },
     mutations: {
-        // increment (state) {
-        //     state.count++;
-        // }
-      openProject(state) {
-        state.showProject = true;
-      },
-      closeProject(state) {
-        state.showProject = false;
-      },
       switchPage(state, index) {
-        console.log('scemo');
         state.showMenu = false;
         state.showProject = false;
         state.pageIndex = index;
@@ -108,11 +98,15 @@ export const store = new Vuex.Store({
       toggleMenu(state) {
         state.showMenu = !state.showMenu;
       },
+      toggleProject(state) {
+        state.showProject = !state.showProject;
+      },
       switchProject(state, index) {
         state.showProject = true;
         state.selectedProject = index;
       },
       switchSkill(state, type) {
+        
         /** it changes at global level the selected skill in _Preview.vue
          * it then display only the works correletated
          */
@@ -125,13 +119,14 @@ export const store = new Vuex.Store({
         }
 
         // based on .show property the preview will be visible
-        state.projects.forEach(function(project) {
+        state.projects.forEach(project => {
           
           // if no skill is selected everything will be visible
           if (state.selectedSkill == '') {
             project.show = true;
           } else {
-            // or each type of the projects will be checked and compared to te selected skill
+            // or each type of the projects will be checked and compared to the selected skill
+            // we use a for loop and not forEach beacause in this case we need to break it
             for (var i=0; i < project.type.length; i++) {
               if (project.type[i] == state.selectedSkill) {
                 project.show = true;
@@ -144,10 +139,8 @@ export const store = new Vuex.Store({
               }
             }
 
-            
           }
         });
-
       },
       
     },

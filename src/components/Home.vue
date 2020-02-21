@@ -94,6 +94,14 @@ export default {
             'switchPage',
             'toggleMenu',
         ]),
+        blockScroll(newValue) {
+            console.log(newValue);
+            if (newValue === true) {
+                document.querySelector('html').style.overflowY = 'hidden';
+            } else {
+                document.querySelector('html').style.overflowY = 'auto';
+            }
+        }
     },
 
     computed: {
@@ -133,7 +141,12 @@ export default {
     },
 
     watch: {
-        
+        showProject: function(newValue) {
+            this.blockScroll(newValue);
+        },
+        showMenu: function(newValue) {
+            this.blockScroll(newValue);
+        },
     }
 }
 </script>
