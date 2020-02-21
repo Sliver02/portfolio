@@ -12,33 +12,28 @@
             </div>
 
             <div class="contact__name">
-                <label for="name">.name*
+                <label for="name">.name*</label>
                 <input v-model="form.name" name="name" id="name" type="text" required>
-                </label>
             </div>
 
             <div class="contact__email">
-                <label for="email">.e-mail*
+                <label for="email">.e-mail*</label>
                 <input v-model="form.email" name="email" id="email" type="email" required>
-                </label>
             </div>
 
             <div class="contact__phone">
-                <label for="phone">.phone
+                <label for="phone">.phone</label>
                 <input v-model="form.phone" name="phone" id="phone" type="tel">
-                </label>
             </div>
 
             <div class="contact__subject">
-                <label for="subject">.subject*
+                <label for="subject">.subject*</label>
                 <input v-model="form.subject" name="subject" id="subject" type="text" required>
-                </label>
             </div>
 
             <div class="contact__message">
-                <label for="message">.what can I do for you*
+                <label for="message">.what can I do for you*</label>
                 <textarea v-model="form.message" name="message" id="message" type="text" required></textarea>
-                </label>
             </div>
 
             <!-- <div class="captcha">
@@ -89,8 +84,14 @@ export default {
                     ...this.form
                 })
             })
-            .then(() => console.log('succ sent'))
-            .catch(e => console.error(e))
+            .then(() => {
+                console.log('success: message sent');
+                alert('success: message sent');
+            })
+            .catch(e => {
+                console.error(e);
+                alert('error: message not sent');
+            })
         },
     },
 
