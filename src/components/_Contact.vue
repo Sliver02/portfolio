@@ -31,13 +31,13 @@
 
             <div class="contact__subject">
                 <label for="subject">.subject*
-                <input v-model="form.subject" name="subject" id="role" type="text" required>
+                <input v-model="form.subject" name="subject" id="subject" type="text" required>
                 </label>
             </div>
 
             <div class="contact__message">
                 <label for="message">.what can I do for you*
-                <textarea v-model="form.message" name="message" id="what" type="text" required></textarea>
+                <textarea v-model="form.message" name="message" id="message" type="text" required></textarea>
                 </label>
             </div>
 
