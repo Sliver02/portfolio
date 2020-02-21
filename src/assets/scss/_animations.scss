@@ -1,5 +1,5 @@
 .fadeRigt-enter-active, .fadeRigt-leave-active {
-    transition: opacity 0.5s, transform 0.5s;
+    transition: opacity 0.5s, transform 1s;
 }
 .fadeRigt-enter, .fadeRigt-leave-to /* .fadeRigt-leave-active below version 2.1.8 */ {
     opacity: 0;

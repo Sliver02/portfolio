@@ -5,30 +5,40 @@
             <p>Let's get together to create something unique and charming</p>
         </div>
 
-        <form class="contact__form" name="contact" action="POST" data-netlify="true">
+        <form @submit.prevent="handleSubmit" class="contact__form" name="contact" action="POST" data-netlify="true" data-netlify-honeypot="bot-field">
+
+            <div style="diplay: none;" hidden>
+                <label>Don't fill this if u're human:  <input name="bot-field"> </label>
+            </div>
+
             <div class="contact__name">
-                <label for="name">.name</label>
-                <input name="name" id="name" type="text">
+                <label for="name">.name*
+                <input v-model="form.name" name="name" id="name" type="text" required>
+                </label>
             </div>
 
             <div class="contact__email">
-                <label for="email">.e-mail</label>
-                <input name="email" id="email" type="text">
+                <label for="email">.e-mail*
+                <input v-model="form.email" name="email" id="email" type="email" required>
+                </label>
             </div>
 
             <div class="contact__phone">
-                <label for="phone">.phone</label>
-                <input name="phone" id="phone" type="text">
+                <label for="phone">.phone
+                <input v-model="form.phone" name="phone" id="phone" type="tel">
+                </label>
             </div>
 
-            <div class="contact__title">
-                <label for="title">.title</label>
-                <input name="role" id="role" type="text">
+            <div class="contact__subject">
+                <label for="subject">.subject*
+                <input v-model="form.subject" name="subject" id="role" type="text" required>
+                </label>
             </div>
 
-            <div class="contact__what">
-                <label for="what">.what can I do for you</label>
-                <textarea name="what" id="what" type="text"></textarea>
+            <div class="contact__message">
+                <label for="message">.what can I do for you*
+                <textarea v-model="form.message" name="message" id="what" type="text" required></textarea>
+                </label>
             </div>
 
             <!-- <div class="captcha">
@@ -48,16 +58,37 @@
 <script>
 export default {
     components: {
-        
     },
 
     data() {
         return {
+            form: {
+                name: '',
+                email: '',
+                phone: '',
+                subject: '',
+                message: '',
+            }
         }
     },
 
     methods: {
-
+        encode(data) {
+            return Object.keys(data)
+            .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`)
+            .join('&')
+        },
+        handleSubmit() {
+            fetch('/', {
+                method: 'post',
+                body: this.encode({
+                    'form-name': 'contact',
+                    ...this.form
+                })
+            })
+            .then(() => console.log('succ sent'))
+            .catch(e => console.error(e))
+        },
     },
 
     computed: {

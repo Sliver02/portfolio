@@ -56,7 +56,7 @@
 
             transform: translatex(-100vw);
             opacity: 0;
-            transition: transform 0.5s, opacity 0.5s;
+            transition: opacity 0.5s, transform 1s;
 
             &.is-open {
                 transform: translateY(0);
@@ -230,12 +230,12 @@
             grid-column-end: 2;
         }
 
-        &__title {
+        &__subject {
             grid-column-start: 1;
             grid-column-end: 2;
         }
     
-        &__what {
+        &__message {
             grid-column-start: 1;
             grid-column-end: 2;
         }

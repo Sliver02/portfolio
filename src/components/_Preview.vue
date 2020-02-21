@@ -181,7 +181,7 @@ export default {
                             // console.log(this.getProjectsPreview[index]);
 
                             backArray.push(this.getProjectsPreview[index].url);
-                            console.log(backArray);
+                            // console.log(backArray);
 
                             break;
                         }
