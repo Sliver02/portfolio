@@ -94,13 +94,13 @@ export default {
             }
         },
 
-        startDrag(index, ev) {
+        startDrag(url, ev) {
             ev = ev || window.event;
             ev.preventDefault();
 
             this.element.z = this.element.z || 1;
 
-            this.imgDragged = document.getElementById(index);
+            this.imgDragged = document.getElementById(url);
             this.dragging = true;
 
             this.element.x = ev.clientX;
