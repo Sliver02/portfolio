@@ -5,11 +5,11 @@
 @import 'variables';
 @import 'animations';
 
-@import 'preview';
-@import 'about';
-@import 'works';
-@import 'project';
-@import 'contact';
+@import 'sections/preview';
+@import 'sections/about';
+@import 'sections/works';
+@import 'sections/project';
+@import 'sections/contact';
 
 // Reset
 * {

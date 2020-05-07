@@ -45,7 +45,7 @@
         </form>
 
         <div class="copyright">
-            Copyright© 2020 - Jacopo Panzera <img :src="require('../assets/img/icons/logo.svg')" alt="">
+            Copyright© 2020 - Jacopo Panzera <img :src="require('../../assets/img/icons/logo.svg')" alt="">
         </div>
     </div>
 </template>

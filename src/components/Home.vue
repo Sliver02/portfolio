@@ -42,7 +42,7 @@
 
             <div id="works" class="home__section">
 
-                <works @show='show' ></works>
+                <works @show='show'></works>
 
             </div>
 
@@ -62,11 +62,11 @@
 </template>
 
 <script>
-import preview from './_Preview.vue'
-import about from './_About.vue'
-import works from './_Works.vue'
-import contact from './_Contact.vue'
-import projectPage from './_Project';
+import preview from './sections/Preview.vue'
+import about from './sections/About.vue'
+import works from './sections/Works.vue'
+import contact from './sections/Contact.vue'
+import projectPage from './sections/Project';
 import {mapState, mapMutations} from 'vuex';
 
 export default {

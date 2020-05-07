@@ -1,8 +1,11 @@
 <template>
-    <div class="project">
+    <div ref="container" class="project">
+        <i class="btn btn__close material-icons"  @click="toggleProject">close</i>
+        <i v-show="project.slides.length != 0" class="btn btn__top material-icons"  @click="returnTop">keyboard_arrow_up</i>
+
         <div class="project__header">
             <div class="project__img">
-                <img :src="require('../assets/img/projects/' + project.url +'/thumbnail.jpg')" alt="">
+                <img :src="require('../../assets/img/projects/' + project.url +'/thumbnail.jpg')" alt="">
             </div>
             <div class="project__desc">
                 <h1>{{project.name}}</h1>
@@ -17,8 +20,12 @@
                 <p v-else v-html="project.desc">
                 </p>
 
-                <div class="btn" @click="toggleProject">.close</div>
+                <div v-show="project.slides.length != 0" class="btn" @click="showMore">.show_more</div>
             </div>
+        </div>
+
+        <div v-show="project.slides.length != 0" ref="content" class="project__content">
+            <img v-for="(slide, index) in project.slides" :key="index" :src="require('../../assets/img/projects/' + project.url +'/slide/'+ slide +'.jpg')" alt="">
         </div>
     </div>
 </template>
@@ -39,7 +46,6 @@ export default {
     },
 
     data() {
-
         return {
             expand: false,
         }
@@ -49,6 +55,20 @@ export default {
         ...mapMutations([
             'toggleProject',
         ]),
+        showMore() {
+            // this.expand = !this.expand;
+
+            // var content = this.$refs.content;
+
+            // setTimeout(function() {
+            //     content.scrollIntoView();
+            // }, 100);
+
+            this.$refs.content.scrollIntoView();
+        },
+        returnTop() {
+            this.$refs.container.scrollTop = 0;
+        }
     },
 
     computed: {
@@ -63,6 +83,6 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss"> 
     
 </style>

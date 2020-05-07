@@ -20,14 +20,14 @@
             <div class="preview__img-wrapper" >
                 <div v-if="mobile">
                     <transition name="fadeIn">
-                        <img class="img-bg" :src="require('../assets/img/projects/' + mobileBackground +'/thumbnail.jpg')" alt="">
+                        <img class="img-bg" :src="require('../../assets/img/projects/' + mobileBackground +'/thumbnail.jpg')" alt="">
                     </transition>
                 </div>
 
                 <div v-else>
                     <transition-group name="fadeIn">
-                        <img class="img-drag" v-for="(project, index) in getProjectsPreview" :key="index" v-show="project.show"
-                        :id="project.url" :src="require('../assets/img/projects/' + project.url +'/thumbnail.jpg')" alt="" 
+                        <img class="img-drag" :ref="project.url" v-for="(project, index) in getProjectsPreview" :key="index" v-show="project.show"
+                         :src="require('../../assets/img/projects/' + project.url +'/thumbnail.jpg')" alt="" 
                         @mousedown="startDrag(project.url)" @mousemove="doDrag" @mouseup="stopDrag">
                     </transition-group>
                 </div>
@@ -67,7 +67,8 @@ export default {
 
         // image position scrambler
         this.getProjectsPreview.forEach((preview) => {
-            var img = document.getElementById(preview.url);
+        console.log(this.$refs[preview.url][0].style)
+            var img = this.$refs[preview.url][0];
 
             img.style.left = (Math.random()*40) + 15 + "vw";
             img.style.top = (Math.random()*50) + 10 + "vh";
@@ -100,7 +101,7 @@ export default {
 
             this.element.z = this.element.z || 1;
 
-            this.imgDragged = document.getElementById(url);
+            this.imgDragged = this.$refs[url][0];
             this.dragging = true;
 
             this.element.x = ev.clientX;

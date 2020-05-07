@@ -13,3 +13,10 @@
     opacity: 0;
     transform: scale(0.9);
 }
+
+.expand-enter-active, .expand-leave-active {
+    transition: transform 0.3s;
+}
+.expand-enter, .expand-leave-to /* .fadeRigt-leave-active below version 2.1.8 */ {
+    transform: scaleY(0);
+}

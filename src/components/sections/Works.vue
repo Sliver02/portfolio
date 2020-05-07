@@ -6,7 +6,7 @@
             <div class="works__project" v-for="(project, index) in projects" :key="index" @click="switchProject(index)">
                 <div class="works__img-wrapper" >
                     <div class="works__img">
-                        <img :src="require('../assets/img/projects/' + project.url +'/thumbnail.jpg')" alt="">
+                        <img :src="require('../../assets/img/projects/' + project.url +'/thumbnail.jpg')" alt="">
                     </div>
                 </div>
                 <div class="works__title">

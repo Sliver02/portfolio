@@ -22,6 +22,7 @@ export const store = new Vuex.Store({
             desc: '',
             preview: true, 
             show: true,
+            slides: []
           },
           {
             url: 'mopay', 
@@ -30,6 +31,7 @@ export const store = new Vuex.Store({
             desc: 'E-wallet App brand identity. This app let you pay and manage your money accounts through your phone. <br><br>Technology, Reliability, security are the main features requested by the company. <br><br>The technology field in which this logo will leave also has its requirements, it has to be bold, modern and simple.',
             preview: true, 
             show: true,
+            slides: ['logo', 'moodboard', 'addition', 'construction', 'sketch', 'table']
           },
           {
             url: '20coperti', 
@@ -38,14 +40,16 @@ export const store = new Vuex.Store({
             desc: 'Corporate identity for Venetian restaurant with a modern spin on traditional dishes. <br><br>The name is a word play between “twenty”, that in Italian also mean “winds”, and “covers” that also means “tables settled”. <br><br>Conceptually it indicates an association between the protection from the ocean winds and the small size of the restaurant.',
             preview: true, 
             show: true,
+            slides: ['logo', 'logo_construction', 'sign_mockup', 'sketch', 'pattern', 'card', 'table']
           },
           {
             url: 'nespresso', 
             name: 'Nespresso Nicaragua', 
             type: ['graphic'],
-            desc: '',
+            desc: 'Passionate and wild, the new taste of coffe born in Nicaragua\'s cultivations for you to taste. Mock up ad, done starting from row assets, polished and assembled to communicate a vibrant and exicting new taste.',
             preview: false, 
             show: true,
+            slides: ['facebook', 'street_mockup', 'poster']
           },
           {
             url: 'tlc',
@@ -54,6 +58,7 @@ export const store = new Vuex.Store({
             desc: '',
             preview: true, 
             show: true,
+            slides: []
           },
           {
             url: 'sketch', 
@@ -62,6 +67,7 @@ export const store = new Vuex.Store({
             desc: '',
             preview: true, 
             show: true,
+            slides: []
           },
           {
             url: 'urdrugs', 
@@ -70,6 +76,7 @@ export const store = new Vuex.Store({
             desc: 'Series of vector illustrations born to bring awarness and light on one of the most tabù topic of our society, illegal drugs. <br><br>Often we talk about these substances but most of the time we don’t even know how they look. <br><br>Thorugh weekly Instagram’s posts i tried to bring a visual rapresentation ligthen by a colorfull look, accompanied by a detailed descprition of the drug’s effects and consequences.',
             preview: true, 
             show: true,
+            slides: []
           },
           // {
           //   url: 'eulost',
@@ -96,6 +103,7 @@ export const store = new Vuex.Store({
         state.pageIndex = index;
       },
       toggleMenu(state) {
+        state.showProject = false;
         state.showMenu = !state.showMenu;
       },
       toggleProject(state) {

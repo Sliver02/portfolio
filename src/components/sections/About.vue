@@ -2,7 +2,7 @@
     <div class="about">
         <div class="container">
             
-            <img class="about__bg" :src="require('../assets/img/icons/logo.svg')" alt="">
+            <img class="about__bg" :src="require('../../assets/img/icons/logo.svg')" alt="">
 
             <div class="about__desc">
                 <h1><span class="jojo">j</span>ac<span class="jojo">o</span>po<br> .panzera</h1>
