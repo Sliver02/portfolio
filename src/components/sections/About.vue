@@ -6,11 +6,9 @@
 
             <div class="about__desc">
                 <h1><span class="jojo">j</span>ac<span class="jojo">o</span>po<br> .panzera</h1>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
-                    Deleniti, voluptate beatae? Magni amet, excepturi quasi 
-                    consequuntur nulla quam placeat saepe. Ut eos illum repellat ea sit. 
-                    Alias pariatur quibusdam eveniet officiis soluta numquam, nihil accusamus, 
-                    dolore necessitatibus quis provident perspiciatis.</p>
+                <p>This is me. Scrolling the wrong way, with too much stuff in it all over the place. Frankly is a bit of mess. 
+                But.. but. in my defence, in all of this i hope something can shine through, my passion, my dedication and my curiosity for what's new and different.
+                Create something unique, with meaning behind it, makes it special and relevant. </p>
                 
             </div>
             <div class="about__img"></div>

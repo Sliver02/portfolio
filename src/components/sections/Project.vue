@@ -79,7 +79,7 @@ export default {
         project() {
             return this.projects[this.selectedProject];
         },
-    }
+    },
 }
 </script>
 
