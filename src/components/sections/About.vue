@@ -6,9 +6,9 @@
 
             <div class="about__desc">
                 <h1><span class="jojo">j</span>ac<span class="jojo">o</span>po<br> .panzera</h1>
-                <p>This is me. Scrolling the wrong way, with too much stuff in it all over the place. Frankly is a bit of mess. 
-                But.. but. in my defence, in all of this i hope something can shine through, my passion, my dedication and my curiosity for what's new and different.
-                Create something unique, with meaning behind it, makes it special and relevant. </p>
+                <p>Illustrator, graphic & web designer based in Milan.
+                I'm driven by curiosity and innovation, always striving to better myself and to find joy into what I do.
+                Working on unique and full of meaning projects gives me a strong porpouse and ethics.</p>
                 
             </div>
             <div class="about__img"></div>

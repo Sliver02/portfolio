@@ -10,10 +10,9 @@
                 </div>
 
                 <div class="preview__desc">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                    Tenetur explicabo illo alias repellat quam quas accusantium mollitia sed molestias! 
-                    Aliquid itaque aspernatur dolore totam molestias cumque! Esse culpa dolores quidem, 
-                    ex quod, incidunt labore quibusdam recusandae, iste ipsum dolorum. Velit?</p>
+                    <p>Adobe-suite. Photoshop. Illustrator. InDesign. 
+                    vector-art. digital-painting. animation. posters. logos. mockups. 
+                    <br>brand-identity. vue-js. lit-element. javascript. scss.</p>
                 </div>
             <!-- </div> -->
 
