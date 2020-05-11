@@ -1,38 +1,38 @@
 <template>
-        <div class="preview">
+    <div class="preview">
 
-            <!-- <div class="preview__text-wrapper"> -->
-                <div class="preview__link-wrapper">
-                    <a v-for="(skill, index) in skills" :key="index" href="#" class="preview__link" 
-                    :class="{'is-active': selectedSkill === skill.type }" @click="switchSkill(skill.type)">
-                        {{skill.name}}
-                    </a>
-                </div>
-
-                <div class="preview__desc">
-                    <p>Adobe-suite. Photoshop. Illustrator. InDesign. 
-                    vector-art. digital-painting. animation. posters. logos. mockups. 
-                    <br>brand-identity. vue-js. lit-element. javascript. scss.</p>
-                </div>
-            <!-- </div> -->
-
-            <div class="preview__img-wrapper" >
-                <div v-if="mobile">
-                    <transition name="fadeIn">
-                        <img class="img-bg" :src="require('../../assets/img/projects/' + mobileBackground +'/thumbnail.jpg')" alt="">
-                    </transition>
-                </div>
-
-                <div v-else>
-                    <transition-group name="fadeIn">
-                        <img class="img-drag" :ref="project.url" v-for="(project, index) in getProjectsPreview" :key="index" v-show="project.show"
-                         :src="require('../../assets/img/projects/' + project.url +'/thumbnail.jpg')" alt="" 
-                        @mousedown="startDrag(project.url)" @mousemove="doDrag" @mouseup="stopDrag">
-                    </transition-group>
-                </div>
-
+        <!-- <div class="preview__text-wrapper"> -->
+            <div class="preview__link-wrapper">
+                <a v-for="(skill, index) in skills" :key="index" href="#" class="preview__link" 
+                :class="{'is-active': selectedSkill === skill.type }" @click="switchSkill(skill.type)">
+                    {{skill.name}}
+                </a>
             </div>
+
+            <div class="preview__desc">
+                <p>Adobe-suite. Photoshop. Illustrator. InDesign. 
+                vector-art. digital-painting. animation. posters. logos. mockups. 
+                <br>brand-identity. vue-js. lit-element. javascript. scss.</p>
+            </div>
+        <!-- </div> -->
+
+        <div class="preview__img-wrapper" >
+            <div v-if="mobile">
+                <transition name="fadeIn">
+                    <img class="img-bg" :src="require('../../assets/img/projects/' + mobileBackground +'/thumbnail.jpg')" alt="">
+                </transition>
+            </div>
+
+            <div v-else>
+                <transition-group name="fadeIn">
+                    <img class="img-drag" :ref="project.url" v-for="(project, index) in getProjectsPreview" :key="index" v-show="project.show"
+                        :src="require('../../assets/img/projects/' + project.url +'/thumbnail.jpg')" alt="" 
+                    @mousedown="startDrag(project.url)" @mousemove="doDrag" @mouseup="stopDrag">
+                </transition-group>
+            </div>
+
         </div>
+    </div>
 
 </template>
 
@@ -66,7 +66,6 @@ export default {
 
         // image position scrambler
         this.getProjectsPreview.forEach((preview) => {
-        console.log(this.$refs[preview.url][0].style)
             var img = this.$refs[preview.url][0];
 
             img.style.left = (Math.random()*40) + 15 + "vw";

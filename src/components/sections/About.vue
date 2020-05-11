@@ -9,7 +9,6 @@
                 <p>Illustrator, graphic & web designer based in Milan.
                 I'm driven by curiosity and innovation, always striving to better myself and to find joy into what I do.
                 Working on unique and full of meaning projects gives me a strong porpouse and ethics.</p>
-                
             </div>
             <div class="about__img"></div>
             <div class="about__social">

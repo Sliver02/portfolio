@@ -1,8 +1,11 @@
 <template>
     <div ref="container" class="project">
         <i class="btn btn__close material-icons"  @click="toggleProject">close</i>
-        <i v-show="project.slides.length != 0" class="btn btn__top material-icons"  @click="returnTop">keyboard_arrow_up</i>
-
+        
+        <transition name="fadeIn">
+            <i v-show="project.slides.length != 0 && scrollUp" class="btn btn__top material-icons"  @click="returnTop">keyboard_arrow_up</i>
+        </transition>
+        
         <div class="project__header">
             <div class="project__img">
                 <img :src="require('../../assets/img/projects/' + project.url +'/thumbnail.jpg')" alt="">
@@ -48,7 +51,12 @@ export default {
     data() {
         return {
             expand: false,
+            scrollUp: false,
         }
+    },
+
+    mounted() {
+        this.checkScrollUp();
     },
 
     methods: {
@@ -68,6 +76,15 @@ export default {
         },
         returnTop() {
             this.$refs.container.scrollTop = 0;
+        },
+        checkScrollUp() {
+            this.$refs.container.onscroll = () => {
+                if (this.$refs.container.scrollTop >= 1000) {
+                    this.scrollUp = true;
+                } else {
+                    this.scrollUp = false;
+                }
+            }           
         }
     },
 
@@ -79,6 +96,11 @@ export default {
         project() {
             return this.projects[this.selectedProject];
         },
+        
+    },
+
+    watch: {
+        
     },
 }
 </script>
