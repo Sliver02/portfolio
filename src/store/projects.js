@@ -1,7 +1,8 @@
 export default [
     {
         url: 'hrfestival', 
-        name: 'Hard Rockolo', 
+        name: 'Hard Rockolo',
+        website: 'https://hardrockolo.netlify.app',
         type: ['graphic', 'web'],
         desc: 'Hard Rockolo is a music festival that take place in the middle of the Dolomiti mountains, in my home town. I am part of the organization as media manager and graphic designer.',
         preview: true, 
@@ -71,13 +72,14 @@ export default [
         preview: false, 
         show: true,
     },
-    // {
-    //   url: 'whatever', 
-    //   name: 'Cook whatever', 
-    //   type: ['web'],
-    //   desc: '',
-    //   slides: [],
-    //   preview: true, 
-    //   show: true,
-    // },
+    {
+      url: 'whatever', 
+      name: 'Cook whatever', 
+      website: 'https://cook-whatever.netlify.app',
+      type: ['web'],
+      desc: 'Plain html5, css, js mockup project for a recipes website. You can only search "pizza" and "tacos" given the database, but who needs more then that?',
+      slides: [],
+      preview: true, 
+      show: false,
+    },
 ]
