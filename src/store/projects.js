@@ -79,7 +79,7 @@ export default [
       type: ['web'],
       desc: 'Plain html5, css, js mockup project for a recipes website. You can only search "pizza" and "tacos" given the database, but who needs more then that?',
       slides: [],
-      preview: true, 
+      preview: false, 
       show: false,
     },
 ]

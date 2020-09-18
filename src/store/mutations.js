@@ -38,15 +38,15 @@ export default {
             // or each type of the projects will be checked and compared to the selected skill
             // we use a for loop and not forEach beacause in this case we need to break it
             for (var i=0; i < project.type.length; i++) {
-            if (project.type[i] == state.selectedSkill) {
-                project.show = true;
-                
-                // we break the loop in the case a true value is encountered thorughtout the array
-                // to avoid turning .show false when the project has the last type different from the one selected
-                break;
-            } else {
-                project.show = false;
-            }
+              if (project.type[i] == state.selectedSkill) {
+                  project.show = true;
+                  
+                  // we break the loop in the case a true value is encountered thorughtout the array
+                  // to avoid turning .show false when the project has the last type different from the one selected
+                  break;
+              } else {
+                  project.show = false;
+              }
             }
 
         }

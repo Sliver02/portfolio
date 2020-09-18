@@ -172,6 +172,11 @@
     }
 
     .project {
+        .btn {
+            &__close {
+                top: 20px;
+            }
+        }
         
         &__header {
             height: auto;

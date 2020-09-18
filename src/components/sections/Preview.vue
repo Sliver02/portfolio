@@ -19,7 +19,7 @@
         <div class="preview__img-wrapper" >
             <div v-if="mobile">
                 <transition name="fadeIn">
-                    <img class="img-bg" :src="require('../../assets/img/projects/' + mobileBackground +'/thumbnail.jpg')" alt="">
+                    <img class="img-bg" :src="require('../../assets/img/projects/tlc/thumbnail.jpg')" alt="">
                 </transition>
             </div>
 
