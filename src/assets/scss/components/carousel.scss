@@ -1,0 +1,30 @@
+.carousel {
+    height: 100vh;
+
+    &__slide {
+        @include flex-center();
+        position: relative;
+        height: 100%;
+        overflow: hidden;
+    }
+
+    &__img {
+        height: 100vh;
+    }
+
+    &__desc {
+        position: absolute;
+        cursor: pointer;
+        bottom: 40px;
+        left: 30px;
+        font-size: 18px;
+        max-width: 400px;
+        z-index: 2;
+
+        color: $dark-gray;
+        background-color: $light-gray;
+        padding: 10px 30px;
+
+        // mix-blend-mode: difference;
+    }
+}

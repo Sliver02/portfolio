@@ -1,0 +1,21 @@
+.btn {
+    cursor: pointer;
+    display: inline-block;
+
+    padding: 0.8rem 1.5rem;
+    background: darken($dark-gray, 3%);
+
+    // margin: 1rem 0;
+    // border: 1px solid white !important; 
+
+    transition: all 0.3s;
+
+    &--active, &:hover, &:active {
+        color: $dark-gray;
+        background: white;
+
+        &:hover {
+            background: white;
+        }
+    }
+}

@@ -1,7 +1,6 @@
 <template>
     <div class="works">
-        <h1>Works</h1>
-        <div class="works__wrapper">
+        <!-- <h1>Works</h1> -->
 
             <div class="works__project" v-for="(project, index) in projects" :key="index" @click="switchProject(index)">
                 <div class="works__img-wrapper" >
@@ -14,10 +13,6 @@
                 </div>
 
             </div>
-
-        </div>
-        
-        
     </div>
 </template>
 

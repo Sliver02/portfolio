@@ -9,6 +9,8 @@ import getters from "./getters";
 
 export const store = new Vuex.Store({
     state: {
+        fullWidth: document.documentElement.clientWidth,
+        isMobile: true,
         pageIndex: 0,
         showMenu: false,
         selectedProject: 0,

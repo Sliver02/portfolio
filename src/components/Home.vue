@@ -28,21 +28,24 @@
         </div>
         
         <div class="home">
-            <div class="home__section">
+
+            <carousel v-if="isMobile"></carousel>
+            <div v-else class="home__section">
 
                 <preview></preview>
 
             </div>
 
-            <div class="home__section">
-
-                <about></about>
-
-            </div>
 
             <div id="works" class="home__section">
 
-                <works @show='show'></works>
+                <works></works>
+
+            </div>
+            
+            <div class="home__section">
+
+                <about></about>
 
             </div>
 
@@ -62,35 +65,46 @@
 </template>
 
 <script>
-import preview from './sections/Preview.vue'
-import about from './sections/About.vue'
-import works from './sections/Works.vue'
-import contact from './sections/Contact.vue'
+import preview from './sections/Preview.vue';
+import carousel from './sections/Carousel.vue';
+import about from './sections/About.vue';
+import works from './sections/Works.vue';
+import contact from './sections/Contact.vue';
 import projectPage from './sections/Project';
 import {mapState, mapMutations} from 'vuex';
+import Carousel from './sections/Carousel.vue'
 
 export default {
     components: {
         preview,
+        carousel,
         about,
         works,
         contact,
         projectPage,
+        Carousel,
     },
 
     data() {
         return {
-            show: false,
-            pages: [ 'home', 'about', 'works', 'contact' ],
+            pages: [ 'home', 'works', 'about', 'contact' ],
         }
     },
 
     mounted() {
-        
+        this.handleResize();
+    },
+
+    created() {
+        window.addEventListener('resize', this.handleResize)
+    },
+    destroyed() {
+        window.removeEventListener('resize', this.handleResize)
     },
 
     methods: {
         ...mapMutations([
+            'handleResize',
             'switchPage',
             'toggleMenu',
         ]),
@@ -106,6 +120,7 @@ export default {
 
     computed: {
         ...mapState([
+            'isMobile',
             'pageIndex',
             'showMenu',
             'showProject',
@@ -147,6 +162,7 @@ export default {
         showMenu: function(newValue) {
             this.blockScroll(newValue);
         },
+
     }
 }
 </script>

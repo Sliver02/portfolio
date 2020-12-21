@@ -1,6 +1,5 @@
 <template>
     <div class="about">
-        <div class="container">
             
             <img class="about__bg" :src="require('../../assets/img/icons/logo.svg')" alt="">
 
@@ -19,7 +18,6 @@
         </div>
         
 
-    </div>
 </template>
 
 <script>

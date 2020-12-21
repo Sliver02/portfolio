@@ -1,0 +1,148 @@
+.navbar {
+    z-index: 3;
+    position: fixed;
+    width: 100%;
+
+    &__wrap {
+        flex-wrap: wrap;
+        display: flex;
+        position: relative;
+        width: 100%;
+        background: $trasparent-dark-gray;
+        justify-content: space-between;
+    }
+
+    &__logo, &__burger {
+        z-index: 2;
+    }
+    
+    &__logo {
+        @include flex-center();
+        margin: 1.2rem 2rem;
+        font-size: 12px;
+
+        @include for-tablet-portrait-up {
+            margin: 1.2rem;
+        }
+
+        img {
+            width: 50px;
+            margin: 0 10px;
+            transition: transform 0.2s ease-out;
+        }
+
+        &:hover, &:active, &:focus {
+            img { 
+                transform: rotate(-10deg);
+            }
+        }
+    }
+
+    &__menu {
+        display: flex;
+
+        @include for-tablet-portrait-down {
+            @include flex-center;
+            position: absolute;
+            top: 0;
+            width: 100%;
+            height: 100vh;
+            background: $trasparent-dark-gray;
+            font-size: 1.2rem;
+
+            transform: translatex(-100vw);
+            opacity: 0;
+            transition: opacity 0.5s, transform 1s;
+        }
+
+        &.is-open {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .nav {
+            @include flex-center;
+            list-style: none;          
+
+            @include for-tablet-portrait-down {
+                flex-direction: column;
+            }
+
+            &__btn {
+                @include flex-center;
+                position: relative;  
+
+                width: 100%;
+                height: 100%;
+                padding: 0 1.5rem;
+                
+                cursor: pointer;
+                transition: padding 0.3s ease;
+
+                @include for-tablet-portrait-down {
+                    margin: 0.5rem 0;
+                    background: $trasparent-dark-gray;
+                    border: 1px solid #ffffff;
+                    padding: 1rem 2rem;
+                }
+
+                &::after {
+                    display: block;
+                    content: '';
+    
+                    width: 100%;
+                    height: 0;
+    
+                    background: white;
+    
+                    position: absolute;
+                    left: 0;
+                    bottom: 0;
+                    z-index: 2;
+
+                    @include for-tablet-portrait-down {
+                        display: none;
+                    }
+                }
+
+                &:hover, &:active, &:focus {
+                    @include for-phone-down {
+                        color: $dark-gray;
+                        background: white;
+                    }
+                }
+
+                &.is-active {
+                    
+                    &::after {
+                        height: 2px;
+                    }
+                    
+                    @include for-tablet-landscape-up {
+                        padding: 0 2rem;
+                        color: white;
+                        background: lighten($trasparent-dark-gray, 2%);
+                    }
+                }
+            }
+        }
+
+        
+    }
+
+    &__burger {
+        @include flex-center;
+        font-size: 3rem;
+        margin: auto 2rem;
+        cursor: pointer;
+        transition: transform 0.3s;
+
+        &:active, &:focus {
+            transform: scale(0.8);
+        }
+
+        @include for-tablet-landscape-up {
+            display: none;
+        }
+    }
+}

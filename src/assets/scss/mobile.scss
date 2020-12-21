@@ -118,8 +118,6 @@
 
             overflow: hidden;
         }
-
-        
     }
     
     .preview {
@@ -268,7 +266,6 @@
             padding-bottom: 120px;
 
             &:first-of-type {
-                padding-top: 120px;
                 margin-bottom: 80px;
             }
         }
@@ -401,13 +398,13 @@
 
 }
 
-//whide
-@media (min-width: 1400px) {
+// //whide
+// @media (min-width: 1400px) {
 
-    .works {
-        &__wrapper {
-            --columns: 7;
-        }
-    }
+//     .works {
+//         &__wrapper {
+//             --columns: 7;
+//         }
+//     }
 
-}
+// }

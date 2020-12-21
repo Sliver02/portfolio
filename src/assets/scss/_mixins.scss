@@ -1,0 +1,63 @@
+@mixin flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@mixin section-padding {
+    padding: 120px 0;
+}
+
+@mixin img-wrap {
+    
+    &__img-wrap {
+        @include flex-center();
+
+        overflow: hidden;
+
+        width: 100%;
+        height: 100%;
+    }
+        &__img {
+            @include flex-center();
+            
+            width: 100%;
+            height: 100%;
+
+            position: relative;
+
+            img {
+                position: absolute;
+            }
+        }
+}
+
+
+// media queries
+@mixin for-phone-down {
+    @media (max-width: 599px) { @content; }
+}
+
+@mixin for-tablet-portrait-up {
+    @media (min-width: 600px) { @content; }
+}
+
+@mixin for-tablet-portrait-down {
+    @media (max-width: 899px) { @content; }
+}
+
+@mixin for-tablet-landscape-up {
+    @media (min-width: 900px) { @content; }
+}
+
+@mixin for-tablet-landscape-down {
+    @media (max-width: 1199px) { @content; }
+}
+
+@mixin for-desktop-up {
+    @media (min-width: 1200px) { @content; }
+}
+
+@mixin for-big-desktop-up {
+    @media (min-width: 1800px) { @content; }
+}
