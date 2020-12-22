@@ -25,15 +25,15 @@
     grid-column-gap: var(--gutter);
     grid-row-gap: var(--gutter);
 
-    margin-bottom: 100px;
-
+    
     @include for-tablet-portrait-up {
         --columns: 2;
         align-self: flex-start;
     }
-
+    
     @include for-tablet-landscape-up {
         --columns: 4;
+        padding: 120px 40px;
     }
 
     h1 {

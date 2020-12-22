@@ -4,7 +4,6 @@
     justify-content: center;
 
     min-width: 60%;
-    // max-width: 800px;
     
     label {
         display: block;
@@ -41,37 +40,81 @@
 
     &__form {
         display: grid;
-        grid-template-columns: repeat(2, auto);
-        grid-template-rows: repeat(5, auto);
         grid-gap: 14px;
-
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(7, auto);
+        
         width: 100%;
+        
+        @include for-tablet-portrait-up {
+            grid-template-columns: repeat(2, auto);
+            grid-template-rows: repeat(5, auto);
+        }
     }   
 
     &__name {
         grid-column-start: 1;
-        grid-column-end: 3;
+        grid-column-end: 2;
+        
+        @include for-tablet-portrait-up {
+            grid-column-start: 1;
+            grid-column-end: 3;
+        }
     }
 
     &__email {
-
+        grid-column-start: 1;
+        grid-column-end: 2;
     }
 
     &__phone {
+        grid-column-start: 1;
+        grid-column-end: 2;
 
+        @include for-tablet-portrait-up {
+            grid-column-start: 2;
+            grid-column-end: 3;
+        }
     }
 
     &__subject {
         grid-column-start: 1;
-        grid-column-end: 3;
+        grid-column-end: 2;
+        
+        @include for-tablet-portrait-up {
+            grid-column-start: 1;
+            grid-column-end: 3;
+        }
     }
 
     &__message {
         grid-column-start: 1;
-        grid-column-end: 3;
+        grid-column-end: 2;
+        
+        @include for-tablet-portrait-up {
+            grid-column-start: 1;
+            grid-column-end: 3;
+    
+            textarea {
+                min-height: 25vh;
+            }
+        }
+    }
 
-        textarea {
-            min-height: 25vh;
+    .copyright {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        
+        padding: 20px 40px;
+        font-size: 0.8rem;
+    
+        img {
+            width: 0.8rem;
+        }
+
+        
+        @include for-tablet-landscape-up {
         }
     }
 }

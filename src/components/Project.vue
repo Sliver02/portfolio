@@ -8,7 +8,7 @@
         
         <div class="project__header">
             <div class="project__img">
-                <img :src="require('../../assets/img/projects/' + project.url +'/thumbnail.jpg')" alt="">
+                <img :src="require('../assets/img/projects/' + project.url +'/thumbnail.jpg')" alt="">
             </div>
             <div class="project__desc">
                 <h1>{{project.name}}</h1>
@@ -29,7 +29,7 @@
         </div>
 
         <div v-show="project.slides.length != 0" ref="content" class="project__content">
-            <img v-for="(slide, index) in project.slides" :key="index" :src="require('../../assets/img/projects/' + project.url +'/slide/'+ slide +'.jpg')" alt="">
+            <img v-for="(slide, index) in project.slides" :key="index" :src="require('../assets/img/projects/' + project.url +'/slide/'+ slide +'.jpg')" alt="">
         </div>
     </div>
 </template>

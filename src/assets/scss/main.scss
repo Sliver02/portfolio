@@ -9,11 +9,11 @@
 @import 'components/carousel';
 @import 'components/navbar';
 @import 'components/button';
+@import 'components/project';
 
 @import 'sections/preview';
 @import 'sections/about';
 @import 'sections/works';
-@import 'sections/project';
 @import 'sections/contact';
 
 // Reset
@@ -60,38 +60,15 @@ a, a:hover {
 }
 
 // Slider
-// .home {
-//     position: relative;
-//     display: flex;
-
-//     width: $slider-width;
-//     height: 100vh;
-    
-//     transition: transform 1s ease-in-out;
-//     // transform: translate3d($section-width, 0, 0);
-//     transform: translate3d($slide-x, 0, 0);
-    
-//     &__section {
-//         // @include flex-center();
-//         overflow-x: hidden;
-//         overflow-y: auto;
-//         position: relative;
-
-//         width: $section-portion;
-//         // height: 100%;
-//         // margin-top: $navbar-height;
-
-//         padding: 0 20px;
-//     }
-// }
-
 .home {
     display: flex;
     flex-direction: column;
+    position: relative;
+    overflow-y: hidden;
+
     width: 100vw;
     height: auto;
 
-    overflow-y: hidden;
     transition: transform 1s ease-in-out;
     transform: translate3d(0, $slide-y, 0);
 
@@ -104,25 +81,15 @@ a, a:hover {
 
     &__section {
         width: 100vw;
-
         overflow: hidden;
-        
-        // .about, .works, .contact, .preview {
-        //     margin-top: $mobile-section-p;
-        //     padding-bottom: $mobile-section-p;
-    
-        // }
 
         @include for-tablet-portrait-down {
-            padding: 60px 40px;
+            padding: 0 20px;
+            padding-bottom: 120px;
             
             .about, .works, .contact, .preview {
                 align-self: flex-start;
             }
-        }
-
-        @include for-phone-down {
-            padding: 60px 20px;
         }
 
         @include for-tablet-landscape-up {
@@ -135,20 +102,4 @@ a, a:hover {
         }
     }
 }
-
-.copyright {
-    padding: 20px 40px;
-    position: absolute;
-    bottom: 0;
-    right: 0;
-
-    font-size: 0.8rem;
-
-    img {
-        width: 0.8rem;
-    }
-}
-
-
-// @import 'mobile';
 

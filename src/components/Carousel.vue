@@ -1,7 +1,7 @@
 <template lang="">
     <agile class="carousel" :options="myOptions">
         <div class="carousel__slide" v-for="(project, index) in getProjectsPreview" :key="index">
-            <img class="carousel__img" :src="require('../../assets/img/projects/' + project.url +'/thumbnail.jpg')" alt="" >
+            <img class="carousel__img" :src="require('../assets/img/projects/' + project.url +'/thumbnail.jpg')" alt="" >
             <div class="carousel__desc" @click="switchProject(index)">
                 {{project.url}}.
             </div>
