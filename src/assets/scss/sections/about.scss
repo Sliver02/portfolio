@@ -1,7 +1,12 @@
+
 .about {
     @include flex-center();
     position: relative;
-    // width: 100%;
+
+    @include for-tablet-portrait-down {
+        flex-direction: column;
+        align-items: flex-start;      
+    }
 
     &__bg {
         position: absolute;
@@ -13,39 +18,46 @@
     }
 
     &__img {
-        $side: 320px;
-        margin: 5vh;
+        margin-bottom: 5vh;
 
-        width: $side;
-        height: $side;
+        $img-side: 250px;
+        width: $img-side;
+        height: $img-side;
 
         background: url('./assets/img/about/me.jpg') no-repeat center center/120%;
 
         transition: all 1s;
 
         :hover > & {
-            // $side: 40vh;
+            transform: scale(1);
+            background-size: 120%;
+        }
 
-            // width: $side;
-            // height: $side;
-            margin: 3vh;
+        @include for-tablet-landscape-up {
+            order: 2;
+            margin: 5vh;
 
-            transform: scale(1.2);
-            background-size: 100%;
+            $img-side: 320px;
+            width: $img-side;
+            height: $img-side;
+
+            :hover > & {
+                margin: 3vh;
+                margin-bottom: 5vh;
+    
+                transform: scale(1.2);
+                background-size: 100%;
+            }
         }
     }
 
     &__desc {
-        text-align: right;
-
-        margin-top: 20vh;
-        margin-right: 40px;
-
-
+        margin-bottom: 5vh;
+        
         h1 {
             margin-bottom: 2rem;
 
-            font-size: 4rem;
+            font-size: 3rem;
             line-height: 0.8;
 
             .jojo {
@@ -57,25 +69,42 @@
             max-width: 500px;
         }
 
+        @include  for-tablet-landscape-up{
+            order: 1;
+            margin-top: 20vh;
+            margin-right: 40px;
+            text-align: right;
+
+            h1 {
+                font-size: 4rem;
+            }
+        }
     }
     
     &__social {
         font-size: 2.2rem;
         margin: 18px 0;
-        position: absolute;
-        right: 20px;
-        bottom: -40px;
 
         i {
             margin: 0 8px;
             transition: all 0.2s;
-            opacity: 0.6;
+        }
 
-            &:hover {
-                // font-size: 2.5rem;
-                opacity: 1;
-                transform: translateY(-5px);
+        @include  for-tablet-landscape-up{
+            order: 3;
+            position: absolute;
+            right: 20px;
+            bottom: -10px;
+            
+            margin: 0;
 
+            i {
+                opacity: 0.6;
+
+                &:hover {
+                    opacity: 1;
+                    transform: translateY(-5px);
+                }
             }
         }
     }

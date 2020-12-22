@@ -104,7 +104,6 @@ a, a:hover {
 
     &__section {
         width: 100vw;
-        min-height: 100vh;
 
         overflow: hidden;
         
@@ -115,11 +114,15 @@ a, a:hover {
         // }
 
         @include for-tablet-portrait-down {
-            padding: 60px 20px;
+            padding: 60px 40px;
             
             .about, .works, .contact, .preview {
                 align-self: flex-start;
             }
+        }
+
+        @include for-phone-down {
+            padding: 60px 20px;
         }
 
         @include for-tablet-landscape-up {

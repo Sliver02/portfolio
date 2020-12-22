@@ -34,6 +34,10 @@
 
 
 // media queries
+@mixin for-phone-up {
+    @media (max-width: 320px) { @content; }
+}
+
 @mixin for-phone-down {
     @media (max-width: 599px) { @content; }
 }
