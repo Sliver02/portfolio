@@ -21,7 +21,11 @@
         }
 
         &__close {
-            top: 80px;
+            top: 20px;
+
+            @include for-tablet-landscape-up {
+                top: 80px;
+            }
         }
 
         &__top {
@@ -29,36 +33,49 @@
         }
     }
 
-    &__header, &__section {
+    &__header {
         @include flex-center();
         
         width: 100vw;
         height: 100vh;
-    }
-
-    //&__content {
-
         
-    //}
+        @include for-tablet-portrait-down {
+            height: auto;
+            flex-direction: column;
+        }
+    }
     
     &__img {
+        @include flex-center();
+
         flex: 2;
-        height: 60vh;
+        justify-content: flex-start;
+        height: auto;
         overflow: hidden;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        //background: url('./assets/img/projects/20coperti/thumbnail.jpg') no-repeat center center/cover;
 
         img {
             height: 100%;
+
+            @include for-tablet-portrait-down {
+                width: 100%;
+            }
+
+            @include for-phone-down {
+                width: auto;
+                min-width: 100%;
+                max-height: 400px;
+            }
+        }
+
+        @include for-tablet-landscape-up {
+            justify-content: center;
+            height: 60vh;  
         }
     }
 
     &__desc {
         flex: 2;
-        padding: 3rem;
-        margin-top: 15vh;
+        padding: 20px;
 
         h1 {
             font-family: 'Space Mono', monospace;
@@ -70,6 +87,10 @@
             max-width: 600px;
             margin-top: 1rem;
             margin-bottom: 2rem;
+        }
+
+        @include for-tablet-landscape-up {
+            margin-top: 15vh;
         }
     }
 

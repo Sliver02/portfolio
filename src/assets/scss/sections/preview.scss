@@ -10,17 +10,16 @@
 
     // min-height: 800px;
 
-    // &__text-wrapper {
-    //     display: flex;
-    //     flex-direction: column;
-    //     justify-content: space-between;
-    //     height: 60%;
-    //     left: 40vh;
+    &__text-wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
 
-    //     mix-blend-mode: difference;
-    // }
+        pointer-events: none;
+    }
 
-    &__link-wrapper {
+    &__quote-wrapper {
         display: flex;
         flex-direction: column;
         align-items: left;
@@ -29,6 +28,12 @@
 
         mix-blend-mode: difference;
         margin-bottom: 40px;
+
+        font-family: 'Space Mono', monospace;
+
+        font-size: 2.3rem;
+        line-height: 0.8;
+        max-width: 600px;
     }
     
     &__link {

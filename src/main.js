@@ -7,10 +7,6 @@ Vue.config.productionTip = false;
 
 Vue.use(VueAgile)
 
-// store.commit('increment');
-// console.log(store.state.count);
-//console.log(store.getters.getProjectsPreview);
-
 new Vue({
   store,
   render: h => h(App),

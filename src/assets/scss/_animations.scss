@@ -7,10 +7,12 @@
 }
 
 .fadeIn-enter-active, .fadeIn-leave-active {
+    opacity: 0;
     transition: opacity 0.2s, transform 0.3s;
 }
 .fadeIn-enter, .fadeIn-leave-to /* .fadeRigt-leave-active below version 2.1.8 */ {
     opacity: 0;
+    transition: opacity 0.2s, transform 0.3s;
     transform: scale(0.9);
 }
 

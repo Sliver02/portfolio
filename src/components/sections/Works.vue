@@ -1,8 +1,20 @@
 <template>
     <div class="works">
-        <!-- <h1>Works</h1> -->
+        <h1>Works</h1>
 
-            <div class="works__project" v-for="(project, index) in projects" :key="index" @click="switchProject(index)">
+        <div class="works__filters-wrapper">
+            <span v-for="(skill, index) in skills" :key="index" class="works__filter" 
+            :class="{'is-active': selectedSkill === skill.type }" @click="switchSkill(skill.type)">
+                {{skill.name}}
+            </span>
+        </div>
+
+        <transition-group name="fadeIn" class="works__projects-wrap">
+            <div class="works__project" 
+                v-for="(project, index) in projects" :key="index" 
+                @click="switchProject(index)" 
+                v-show="project.show"
+            >
                 <div class="works__img-wrapper" >
                     <div class="works__img">
                         <img :src="require('../../assets/img/projects/' + project.url +'/thumbnail.jpg')" alt="">
@@ -13,11 +25,12 @@
                 </div>
 
             </div>
+        </transition-group>
     </div>
 </template>
 
 <script>
-import {mapState, mapMutations} from 'vuex';
+import {mapState, mapMutations, mapGetters} from 'vuex';
 
 export default {
     components: {
@@ -31,6 +44,7 @@ export default {
 
     methods: {
         ...mapMutations([
+            'switchSkill',
             'openProject',
             'switchProject',
         ]),
@@ -42,8 +56,13 @@ export default {
 
     computed: {
         ...mapState([
-            'showProject',
+            'skills',
+            'selectedSkill',
             'projects',
+            'showProject',
+        ]),
+        ...mapGetters([
+            'getProjectsPreview',
         ]),
     }
 }

@@ -91,13 +91,14 @@
         grid-column-start: 1;
         grid-column-end: 2;
         
+        textarea {
+            min-height: 25vh;
+        }
+        
         @include for-tablet-portrait-up {
             grid-column-start: 1;
             grid-column-end: 3;
     
-            textarea {
-                min-height: 25vh;
-            }
         }
     }
 

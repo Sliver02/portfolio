@@ -1,12 +1,13 @@
 <template>
     <div class="preview">
 
-        <!-- <div class="preview__text-wrapper"> -->
-            <div class="preview__link-wrapper">
-                <a v-for="(skill, index) in skills" :key="index" href="#" class="preview__link" 
+        <div class="preview__text-wrapper">
+            <div class="preview__quote-wrapper">
+                <!-- <a v-for="(skill, index) in skills" :key="index" href="#" class="preview__link" 
                 :class="{'is-active': selectedSkill === skill.type }" @click="switchSkill(skill.type)">
                     {{skill.name}}
-                </a>
+                </a> -->
+                DUDE, Sucking at something is the first step to be sorta good at something.
             </div>
 
             <div class="preview__desc">
@@ -14,7 +15,7 @@
                 vector-art. digital-painting. animation. posters. logos. mockups. 
                 <br>brand-identity. vue-js. lit-element. javascript. scss.</p>
             </div>
-        <!-- </div> -->
+        </div>
 
         <div class="preview__img-wrapper" >
             <div v-if="mobile">
