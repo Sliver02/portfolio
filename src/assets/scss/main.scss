@@ -90,6 +90,10 @@ a, a:hover {
             .about, .works, .contact, .preview {
                 align-self: flex-start;
             }
+
+            &:first-of-type {
+                padding: 0;
+            }
         }
 
         @include for-tablet-landscape-up {

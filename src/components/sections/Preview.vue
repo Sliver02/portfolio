@@ -7,7 +7,7 @@
                 :class="{'is-active': selectedSkill === skill.type }" @click="switchSkill(skill.type)">
                     {{skill.name}}
                 </a> -->
-                DUDE, Sucking at something is the first step to be sorta good at something.
+                Sucking at something is the first step to be sorta good at something.
             </div>
 
             <div class="preview__desc">
@@ -17,32 +17,28 @@
             </div>
         </div>
 
-        <div class="preview__img-wrapper" >
-            <div v-if="mobile">
-                <transition name="fadeIn">
-                    <img class="img-bg" :src="require('../../assets/img/projects/tlc/thumbnail.jpg')" alt="">
-                </transition>
-            </div>
+        <div v-if="isMobile">
+            <carousel></carousel>
+        </div>
 
-            <div v-else>
-                <transition-group name="fadeIn">
-                    <img class="img-drag" :ref="project.url" v-for="(project, index) in getProjectsPreview" :key="index" v-show="project.show"
-                        :src="require('../../assets/img/projects/' + project.url +'/thumbnail.jpg')" alt="" 
-                    @mousedown="startDrag(project.url)" @mousemove="doDrag" @mouseup="stopDrag">
-                </transition-group>
-            </div>
-
+        <div class="preview__img-wrapper" v-else>
+            <transition-group name="fadeIn">
+                <img class="img-drag" :ref="project.url" v-for="(project, index) in getProjectsPreview" :key="index"
+                    :src="require('../../assets/img/projects/' + project.url +'/thumbnail.jpg')" alt="" 
+                @mousedown="startDrag(project.url)" @mousemove="doDrag" @mouseup="stopDrag">
+            </transition-group>
         </div>
     </div>
 
 </template>
 
 <script>
+import carousel from '../Carousel.vue';
 import {mapState, mapGetters, mapMutations} from 'vuex';
 
 export default {
     components: {
-        
+        carousel,
     },
 
     data() {
@@ -59,25 +55,11 @@ export default {
             },
             viewportWidth: null,
             viewportHeight: null,
-            mobile: false,
         }
     },
 
-    mounted() {
-
-        // image position scrambler
-        this.getProjectsPreview.forEach((preview) => {
-            var img = this.$refs[preview.url][0];
-
-            img.style.left = (Math.random()*40) + 15 + "vw";
-            img.style.top = (Math.random()*50) + 10 + "vh";
-        });
-
-        this.mobileCheck();
-
-        window.addEventListener('resize', () => {
-            this.mobileCheck();
-        });
+    updated() {
+        this.imageScramble();
     },
 
     methods: {
@@ -86,14 +68,14 @@ export default {
             'switchPreview',
         ]),
 
-        mobileCheck() {
-            if (window.innerWidth < 640) {
-                this.mobile = true;
-            } else {
-                this.mobile = false;
-            }
-        },
+        imageScramble() {
+            this.getProjectsPreview.forEach((preview) => {
+                var img = this.$refs[preview.url][0];
 
+                img.style.left = (Math.random()*80) + "vw";
+                img.style.top = (Math.random()*60) + "vh";
+            });
+        },
         startDrag(url, ev) {
             ev = ev || window.event;
             ev.preventDefault();
@@ -148,6 +130,7 @@ export default {
 
     computed: {
         ...mapState([
+            'isMobile',
             'skills',
             'selectedSkill',
         ]),
@@ -164,33 +147,33 @@ export default {
 
             return { width : e[ a+'Width' ] , height : e[ a+'Height' ] }
         },
-        mobileBackground() {
-            const selected = this.selectedSkill;
-            const backArray = [];
+        // mobileBackground() {
+        //     const selected = this.selectedSkill;
+        //     const backArray = [];
 
-            // console.log(this.getProjectsPreview[0].url)
+        //     // console.log(this.getProjectsPreview[0].url)
 
-            if (selected == ''){
+        //     if (selected == ''){
 
-                return this.getProjectsPreview[3].url;
+        //         return this.getProjectsPreview[3].url;
 
-            } else {
-                this.getProjectsPreview.forEach((project, index) => {
-                    for (var i=0; i < project.type.length; i++) {
-                        if (project.type[i] == selected) {
-                            // console.log(this.getProjectsPreview[index]);
+        //     } else {
+        //         this.getProjectsPreview.forEach((project, index) => {
+        //             for (var i=0; i < project.type.length; i++) {
+        //                 if (project.type[i] == selected) {
+        //                     // console.log(this.getProjectsPreview[index]);
 
-                            backArray.push(this.getProjectsPreview[index].url);
-                            // console.log(backArray);
+        //                     backArray.push(this.getProjectsPreview[index].url);
+        //                     // console.log(backArray);
 
-                            break;
-                        }
-                    }
-                });
+        //                     break;
+        //                 }
+        //             }
+        //         });
 
-                return backArray[Math.floor(Math.random() * backArray.length)];
-            }
-        }
+        //         return backArray[Math.floor(Math.random() * backArray.length)];
+        //     }
+        // }
     },
     
     watch: {

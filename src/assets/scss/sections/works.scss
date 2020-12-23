@@ -130,10 +130,6 @@
 
         mix-blend-mode: difference;
         margin-bottom: 40px;
-
-        @include for-tablet-portrait-down {
-            margin-left: 40px;
-        }
     }
 
     &__filter {
@@ -144,7 +140,7 @@
         opacity: 0.5;
 
         font-size: 2.5rem;
-        line-height: 1.2;
+        line-height: 1;
 
         &:hover,&.is-active {
             transform: translateX(16px);
@@ -152,6 +148,10 @@
         
         &.is-active {
             opacity: 1;
+        }
+
+        @include for-tablet-portrait-down {
+            margin-bottom: 15px;
         }
 
         @include for-tablet-landscape-up {

@@ -1,5 +1,4 @@
 .carousel {
-    height: 100vh;
 
     &__slide {
         @include flex-center();
@@ -9,7 +8,8 @@
     }
 
     &__img {
-        height: 100vh;
+        height: 90vh;
+        min-height: 400px;
     }
 
     &__desc {
@@ -24,7 +24,5 @@
         color: $dark-gray;
         background-color: $light-gray;
         padding: 10px 30px;
-
-        // mix-blend-mode: difference;
     }
 }

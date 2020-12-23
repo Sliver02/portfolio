@@ -21,16 +21,14 @@
                                 .{{page}}
                             </span>
                         </li>
-
                     </ul>
                 </div>
             </div>
         </div>
         
         <div class="home">
-            <carousel v-if="isMobile"></carousel>
 
-            <div v-else class="home__section">
+            <div class="home__section">
                 <preview></preview>
             </div>
 
@@ -55,7 +53,6 @@
 </template>
 
 <script>
-import carousel from './components/Carousel.vue';
 import projectPage from './components/Project';
 import preview from './components/sections/Preview.vue';
 import about from './components/sections/About.vue';
@@ -66,7 +63,6 @@ import {mapState, mapMutations} from 'vuex';
 export default {
     name: 'app',
     components: {
-        carousel,
         projectPage,
         preview,
         about,
@@ -109,7 +105,6 @@ export default {
 
     computed: {
         ...mapState([
-            'isMobile',
             'pageIndex',
             'showMenu',
             'showProject',

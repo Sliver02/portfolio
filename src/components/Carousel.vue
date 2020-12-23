@@ -20,12 +20,18 @@ export default {
     data() {
         return {
             myOptions: {
-                autoplay: true,
                 navButtons: false,
                 dots: false,
-                speed: 1000,
+                speed: 80000000000,
+                timing: 'ease-in-out',
+                initialSlide: 0,
             }
         }
+    },
+
+    beforeMount() {
+        console.log('hello');
+        this.startSlide();
     },
 
     methods: {
@@ -33,6 +39,12 @@ export default {
             'openProject',
             'switchProject',
         ]),
+        startSlide() {
+            var randomSlide = Math.floor(Math.random() * this.getProjectsPreview.length)
+            console.log(randomSlide);
+            this.myOptions.initialSlide = randomSlide;
+            console.log(this.myOptions.initialSlide);
+        }
     },
 
     computed: {
