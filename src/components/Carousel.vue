@@ -30,7 +30,6 @@ export default {
     },
 
     beforeMount() {
-        console.log('hello');
         this.startSlide();
     },
 
@@ -41,9 +40,7 @@ export default {
         ]),
         startSlide() {
             var randomSlide = Math.floor(Math.random() * this.getProjectsPreview.length)
-            console.log(randomSlide);
             this.myOptions.initialSlide = randomSlide;
-            console.log(this.myOptions.initialSlide);
         }
     },
 

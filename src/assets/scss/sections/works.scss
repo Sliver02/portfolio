@@ -156,10 +156,6 @@
 
         @include for-tablet-landscape-up {
             font-size: 3.5rem;
-
-            &.is-active {
-                // font-size: 3.8rem;
-            }
         }
     }
 }
