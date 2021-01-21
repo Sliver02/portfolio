@@ -8,7 +8,7 @@
         
         <div class="project__header">
             <div class="project__img">
-                <img :src="require('../assets/img/projects/' + project.url +'/thumbnail.jpg')" alt="">
+                <img :src="require('../assets/img/projects/' + project.url +'/header.jpg')" alt="">
             </div>
             <div class="project__desc">
                 <h1>{{project.name}}</h1>
