@@ -17,11 +17,11 @@
             <carousel></carousel>
         </div>
 
-        <div class="preview__img-wrapper" v-else>
+        <div class="preview__img-wrapper" @mousedown="startDrag" @mousemove="drag" @mouseup="stopDrag" v-else>
             <transition-group name="fadeIn">
                 <img :ref="project.url" v-for="(project, index) in getProjectsPreview" :key="index"
-                    :src="require('../../assets/img/projects/' + project.url +'/thumbnail.jpg')" alt=""  ondragstart="return false;"
-                    @mousedown="startDrag" @mousemove="drag" @mouseup="stopDrag">
+                    :src="require('../../assets/img/projects/' + project.url +'/thumbnail.jpg')" alt=""  ondragstart="return false;" 
+                    @mousedown="draggable">
             </transition-group>
         </div>
     </div>
@@ -48,7 +48,7 @@ export default {
     },
 
     updated() {
-        this.imageScramble();
+        // this.imageScramble();
     },
 
     methods: {
@@ -65,13 +65,16 @@ export default {
                 img.style.top = (Math.random()*60) + "vh";
             });
         },
-        startDrag(e) {
-            e = e || window.event;
-            
+        draggable(e) {
             this.activeItem = e.target;
             this.active = true;
+            console.log(this.activeItem);
+        },
+        startDrag(e) {
+            e = e || window.event;
 
             if(this.activeItem !== null) {
+                e.preventDefault();
 
                 if (!this.activeItem.xOffset) {
                     this.activeItem.xOffset = 0;
@@ -81,14 +84,12 @@ export default {
                     this.activeItem.yOffset = 0;
                 }
 
-                this.activeItem.style.zIndex = ++this.activeItem.z;
-            }
-           
-            this.activeItem.initialX =  e.clientX - this.activeItem.xOffset;
-            this.activeItem.initialY =  e.clientY - this.activeItem.yOffset;
+                this.activeItem.initialX =  e.clientX - this.activeItem.xOffset;
+                this.activeItem.initialY =  e.clientY - this.activeItem.yOffset;
 
-            this.activeItem.z = this.activeItemZindex || 1;
-            this.activeItem.style.zIndex = ++this.activeItemZindex;
+                this.activeItem.z = this.activeItemZindex || 1;
+                this.activeItem.style.zIndex = ++this.activeItemZindex;
+            }
         },
 
         drag(e) {
@@ -111,15 +112,13 @@ export default {
             e = e || window.event;
 
             if (this.activeItem !== null) {
+                e.preventDefault();
+
                 this.activeItem.initialX = this.activeItem.currentX;
                 this.activeItem.initialY = this.activeItem.currentY;
-            }
 
-            this.active = false;
-            this.activeItem = null;
-
-            if (e.preventDefault) {
-                e.preventDefault();
+                this.active = false;
+                this.activeItem = null;
             }
         },
     },
