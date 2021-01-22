@@ -1,15 +1,18 @@
 .works {  
     $timing: 0.8s;
 
+    display: flex;
+    flex-direction: column;
+
     width: 100%;
-    padding-top: 120px;
+    padding-top: 200px;
 
     @include for-tablet-portrait-up {
         align-self: flex-start;
     }
 
     @include for-tablet-landscape-up {
-        padding: 120px 40px;
+        width: 80%;
     }
 
     h1 {
@@ -22,7 +25,7 @@
 
     &__projects-wrap {
         // The content width you use on your website
-        --content-width: 100vw;
+        --content-width: 80vw;
         
         // The size of the gutter  
         --gutter: 2rem;
@@ -130,6 +133,11 @@
 
         mix-blend-mode: difference;
         margin-bottom: 40px;
+
+        @include for-tablet-landscape-up {
+            flex-direction: row;
+            align-self: end;
+        }
     }
 
     &__filter {
@@ -141,10 +149,6 @@
 
         font-size: 2.5rem;
         line-height: 1;
-
-        &:hover,&.is-active {
-            transform: translateX(16px);
-        }
         
         &.is-active {
             opacity: 1;
@@ -152,10 +156,19 @@
 
         @include for-tablet-portrait-down {
             margin-bottom: 15px;
+
+            &:hover,&.is-active {
+                transform: translateX(16px);
+            }
         }
 
         @include for-tablet-landscape-up {
-            font-size: 3.5rem;
+            font-size: 2rem;
+            margin-left: 30px;
+
+            &:hover,&.is-active {
+                transform: translateY(-10px);
+            }
         }
     }
 }

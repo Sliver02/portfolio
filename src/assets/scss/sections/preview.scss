@@ -99,12 +99,17 @@
         
         z-index: 1;
         
-        width: 80%;
-        // height: 100%;
+        width: 100%;
+
+        padding: 0 40px;
+
+        @include for-desktop-up {
+            padding: 0 80px;
+        }
         
         img {            
-            max-width: 500px;
-            max-height: 250px;
+            // max-width: 500px;
+            max-height: 220px;
             position: relative;
             transition: transform 0.2s ease-out;
 
@@ -117,6 +122,16 @@
             -webkit-user-drag: none;
             -webkit-user-select: none;
             -ms-user-select: none;
+
+            // box-shadow: 4px 4px 5px $trasparent-black;
+
+            @include for-desktop-up {
+                max-height: 300px;
+            }
+
+            @include for-big-desktop-up {
+                max-height: 340px;
+            }
         }
     }
 }

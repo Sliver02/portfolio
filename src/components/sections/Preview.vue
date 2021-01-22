@@ -1,5 +1,5 @@
 <template>
-    <div class="preview"  @mousedown="startDrag" @mousemove="drag" @mouseup="stopDrag">
+    <div class="preview" @mousedown="startDrag" @mousemove="drag" @mouseup="stopDrag">
 
         <div class="preview__text-wrapper">
             <div class="preview__quote-wrapper">
@@ -21,7 +21,7 @@
             <transition-group name="fadeIn">
                 <img :ref="project.url" v-for="(project, index) in getProjectsPreview" :key="index"
                     :src="require('../../assets/img/projects/' + project.url +'/thumbnail.jpg')" alt=""  ondragstart="return false;" 
-                    @mousedown="draggable">
+                    @mousedown="isActive">
             </transition-group>
         </div>
     </div>
@@ -44,11 +44,8 @@ export default {
             topZindex: 1,
             viewportWidth: null,
             viewportHeight: null,
+            arr: [1,2,3,4,5,6],
         }
-    },
-
-    updated() {
-        // this.imageScramble();
     },
 
     methods: {
@@ -56,16 +53,7 @@ export default {
             'switchSkill',
             'switchPreview',
         ]),
-
-        imageScramble() {
-            this.getProjectsPreview.forEach((preview) => {
-                let img = this.$refs[preview.url][0];
-
-                img.style.left = (Math.random()*80) + "vw";
-                img.style.top = (Math.random()*60) + "vh";
-            });
-        },
-        draggable(e) {
+        isActive(e) {
             // assign temp target to empty object
             this.activeItem = e.target;
             this.active = true;
@@ -100,7 +88,6 @@ export default {
                 this.activeItem.initialY =  e.clientY - this.activeItem.yOffset;
             }
         },
-
         drag(e) {
             e = e || window.event;
 
@@ -119,7 +106,6 @@ export default {
                 this.activeItem.style.transform = `translate(${this.activeItem.currentX}px,${this.activeItem.currentY}px)`;
             }
         },
-
         stopDrag(e) {
             e = e || window.event;
 

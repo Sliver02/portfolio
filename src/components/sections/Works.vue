@@ -1,6 +1,6 @@
 <template>
     <div class="works">
-        <h1>Works</h1>
+        <!-- <h1>Works</h1> -->
 
         <div class="works__filters-wrapper">
             <span v-for="(skill, index) in skills" :key="index" class="works__filter" 
