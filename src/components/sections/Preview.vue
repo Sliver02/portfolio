@@ -1,5 +1,5 @@
 <template>
-    <div class="preview">
+    <div class="preview"  @mousedown="startDrag" @mousemove="drag" @mouseup="stopDrag">
 
         <div class="preview__text-wrapper">
             <div class="preview__quote-wrapper">
@@ -17,7 +17,7 @@
             <carousel></carousel>
         </div>
 
-        <div class="preview__img-wrapper" @mousedown="startDrag" @mousemove="drag" @mouseup="stopDrag" v-else>
+        <div class="preview__img-wrapper" v-else>
             <transition-group name="fadeIn">
                 <img :ref="project.url" v-for="(project, index) in getProjectsPreview" :key="index"
                     :src="require('../../assets/img/projects/' + project.url +'/thumbnail.jpg')" alt=""  ondragstart="return false;" 
@@ -41,7 +41,7 @@ export default {
         return {
             activeItem: null,
             active: false,
-            activeItemZindex: 0,
+            topZindex: 1,
             viewportWidth: null,
             viewportHeight: null,
         }
@@ -66,9 +66,9 @@ export default {
             });
         },
         draggable(e) {
+            // assign temp target to empty object
             this.activeItem = e.target;
             this.active = true;
-            console.log(this.activeItem);
         },
         startDrag(e) {
             e = e || window.event;
@@ -76,6 +76,7 @@ export default {
             if(this.activeItem !== null) {
                 e.preventDefault();
 
+                // initialzie temp variables for activeItem Object
                 if (!this.activeItem.xOffset) {
                     this.activeItem.xOffset = 0;
                 }
@@ -84,11 +85,19 @@ export default {
                     this.activeItem.yOffset = 0;
                 }
 
+                if (!this.activeItem.currentZindex) {
+                    this.activeItem.currentZindex = 0;
+                }
+
+                // increasing zIndex only when necessary
+                if (this.activeItem.currentZindex < this.topZindex) {
+                    this.activeItem.currentZindex = ++this.topZindex;
+                    this.activeItem.style.zIndex = this.activeItem.currentZindex;
+                }
+
+                // reset intial coordinates of activeItem
                 this.activeItem.initialX =  e.clientX - this.activeItem.xOffset;
                 this.activeItem.initialY =  e.clientY - this.activeItem.yOffset;
-
-                this.activeItem.z = this.activeItemZindex || 1;
-                this.activeItem.style.zIndex = ++this.activeItemZindex;
             }
         },
 
@@ -98,12 +107,15 @@ export default {
             if (this.active) {
                 e.preventDefault();
 
+                // update coordinates with mouse position, adding temp current variables
                 this.activeItem.currentX = e.clientX - this.activeItem.initialX;
                 this.activeItem.currentY = e.clientY - this.activeItem.initialY;
 
+                // update offsets in relation to current coordinates
                 this.activeItem.xOffset = this.activeItem.currentX;
                 this.activeItem.yOffset = this.activeItem.currentY;
 
+                // updating the translation
                 this.activeItem.style.transform = `translate(${this.activeItem.currentX}px,${this.activeItem.currentY}px)`;
             }
         },
@@ -114,9 +126,11 @@ export default {
             if (this.activeItem !== null) {
                 e.preventDefault();
 
+                // reset initial coordinates with current position
                 this.activeItem.initialX = this.activeItem.currentX;
                 this.activeItem.initialY = this.activeItem.currentY;
 
+                // reset active boolean and object
                 this.active = false;
                 this.activeItem = null;
             }

@@ -3,6 +3,10 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: left;
+
+    * > &{
+        overflow-y: hidden;
+    }
     
     @include for-tablet-landscape-up {
         @include flex-center();
@@ -101,8 +105,8 @@
         img {            
             max-width: 500px;
             max-height: 250px;
-            // position: absolute;
-            transition: transform 0.2s;
+            position: relative;
+            transition: transform 0.2s ease-out;
 
             margin: 12px;
 
