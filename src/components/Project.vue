@@ -23,8 +23,8 @@
                 <p v-else v-html="project.desc">
                 </p>
 
-                <div v-show="project.slides.length != 0" class="btn" @click="showMore">.show_more</div>
-                <a v-show="project.website != undefined" class="btn" :href="project.website" target="_blank">.website</a>
+                <div v-show="project.slides.length != 0" class="btn btn__show-more" @click="showMore">.show_more</div>
+                <a v-show="project.website != undefined" class="btn btn__website" :href="project.website" target="_blank">.website</a>
             </div>
         </div>
 

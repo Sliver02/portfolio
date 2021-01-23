@@ -4,10 +4,10 @@ export default [
         name: 'Hard Rockolo',
         website: 'https://hardrockolo.netlify.app',
         type: ['graphic', 'web'],
-        desc: 'Hard Rockolo is a music festival that take place in the middle of the Dolomiti mountains, in my home town. I am part of the organization as media manager and graphic designer.',
+        desc: 'Hard Rockolo is a music festival that take place in the middle of the Dolomiti mountains, in my home town. I am part of the organization as media manager, graphic and web deisgner.',
         preview: true, 
         show: true,
-        slides: []
+        slides: ['2018poster', 'stage', 'artposter', 'forte', '2019poster', 'explorer', '2019tshirt', 'sage']
     },
     {
         url: 'mopay', 
@@ -80,6 +80,6 @@ export default [
       desc: 'Plain html5, css, js mockup project for a recipes website. You can only search "pizza" and "tacos" given the database, but who needs more then that?',
       slides: [],
       preview: false, 
-      show: false,
+      show: true,
     },
 ]

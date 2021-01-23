@@ -12,11 +12,10 @@
 
                 <div class="navbar__menu" :class="{'is-open': showMenu === true}">
                     <ul class="nav">
-                        <!-- <li v-for="(page, index) in pages" :key="index">
-                            <a :href="'#'+page" class="nav__btn" @click="active = page" :class="{'is-active': active === page }">.{{page}}</a>
-                        </li> -->
-
-                        <li v-for="(page, index) in pages" :key="index" class="nav__btn" :class="{'is-active': pageIndex === index }" @click="switchPage(index)">
+                        <li v-for="(page, index) in pages" 
+                        :key="index" class="nav__btn" 
+                        :class="{'is-active': pageIndex === index }" 
+                        @click="pageScroll(page, index)">
                             <span>
                                 .{{page}}
                             </span>
@@ -28,7 +27,7 @@
         
         <div class="home">
 
-            <div class="home__section">
+            <div id="home" class="home__section">
                 <preview></preview>
             </div>
 
@@ -36,11 +35,11 @@
                 <works></works>
             </div>
             
-            <div class="home__section">
+            <div id="about" class="home__section">
                 <about></about>
             </div>
 
-            <div class="home__section">
+            <div id="contact" class="home__section">
                 <contact></contact>
             </div>
         </div>
@@ -100,11 +99,20 @@ export default {
             } else {
                 document.querySelector('html').style.overflowY = 'auto';
             }
+        },
+        pageScroll(page, index) {
+            if (!this.isMobile) {
+                this.switchPage(index);
+            } else {
+                this.toggleMenu();
+                document.getElementById(page).scrollIntoView();
+            }
         }
     },
 
     computed: {
         ...mapState([
+            'isMobile',
             'pageIndex',
             'showMenu',
             'showProject',

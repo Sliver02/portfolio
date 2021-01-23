@@ -30,6 +30,8 @@ html, body {
     color: white;
     background: $dark-gray;
 
+    scroll-behavior: smooth;
+
     @include for-tablet-landscape-up {
         overflow: hidden;
         line-height: 1.2rem;
@@ -86,13 +88,14 @@ a, a:hover {
         @include for-tablet-portrait-down {
             padding: 0 20px;
             padding-bottom: 120px;
+            scroll-margin: 120px;
             
             .about, .works, .contact, .preview {
                 align-self: flex-start;
             }
 
             &:first-of-type {
-                padding: 0;
+                padding: 0 0 80px 0
             }
         }
 

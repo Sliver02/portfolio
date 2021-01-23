@@ -31,6 +31,10 @@
         &__top {
             bottom: 80px;
         }
+
+        &__show-more {
+            margin-right: 20px;
+        }
     }
 
     &__header {
@@ -91,6 +95,7 @@
 
         @include for-tablet-landscape-up {
             margin-top: 15vh;
+            padding: 0 40px;
         }
     }
 
