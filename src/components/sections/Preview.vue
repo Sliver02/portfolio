@@ -19,7 +19,7 @@
 
         <div class="preview__img-wrapper" v-else>
             <transition-group name="fadeIn">
-                <img :ref="project.url" v-for="(project, index) in getProjectsPreview" :key="index"
+                <img :ref="project.url" v-for="(project, index) in getProjectsPreviewRandomOrder" :key="index"
                     :src="require('../../assets/img/projects/' + project.url +'/thumbnail.jpg')" alt=""  ondragstart="return false;" 
                     @mousedown="isActive">
             </transition-group>
@@ -130,7 +130,7 @@ export default {
             'selectedSkill',
         ]),
         ...mapGetters([
-            'getProjectsPreview',
+            'getProjectsPreviewRandomOrder',
         ]),
         viewport() {
             var e = window, a = 'inner';

@@ -88,7 +88,7 @@ a, a:hover {
         @include for-tablet-portrait-down {
             padding: 0 20px;
             padding-bottom: 120px;
-            scroll-margin: 120px;
+            scroll-margin: 200px;
             
             .about, .works, .contact, .preview {
                 align-self: flex-start;

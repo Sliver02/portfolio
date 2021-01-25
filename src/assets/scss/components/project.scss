@@ -12,6 +12,12 @@
     overflow-x: hidden;
 
     .btn {
+        background: $trasparent-dark-gray;
+
+        &:hover {
+            background: $dark-gray;
+        }
+
         &__close, &__top {
             position: fixed;
             font-size: 4rem;
