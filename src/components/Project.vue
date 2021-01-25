@@ -29,7 +29,7 @@
         </div>
 
         <div v-show="project.slides.length != 0" ref="content" class="project__content">
-            <img v-for="(slide, index) in project.slides" :key="index" :src="require('../assets/img/projects/' + project.url +'/slide/'+ slide +'.jpg')" alt="">
+            <img v-for="(slide, index) in project.slides" :key="index" :src="require('../assets/img/projects/' + project.url +'/slides/'+ slide +'.jpg')" alt="">
         </div>
     </div>
 </template>
@@ -65,14 +65,6 @@ export default {
             'toggleProject',
         ]),
         showMore() {
-            // this.expand = !this.expand;
-
-            // var content = this.$refs.content;
-
-            // setTimeout(function() {
-            //     content.scrollIntoView();
-            // }, 100);
-
             this.$refs.content.scrollIntoView();
         },
         returnTop() {

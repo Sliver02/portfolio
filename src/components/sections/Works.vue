@@ -1,7 +1,5 @@
 <template>
     <div class="works">
-        <!-- <h1>Works</h1> -->
-
         <div class="works__filters-wrapper">
             <span v-for="(skill, index) in skills" :key="index" class="works__filter" 
             :class="{'is-active': selectedSkill === skill.type }" @click="switchSkill(skill.type)">
@@ -38,7 +36,6 @@ export default {
 
     data() {
         return {
-            // selectedProject: 0,
         }
     },
 
@@ -48,10 +45,6 @@ export default {
             'openProject',
             'switchProject',
         ]),
-        // projectPage(index) {
-        //     this.switchProject(index);
-        //     this.openProject();
-        // },
     },
 
     computed: {
