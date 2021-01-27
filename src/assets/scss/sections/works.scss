@@ -8,11 +8,11 @@
     
     @include for-tablet-portrait-up {
         align-self: flex-start;
-        padding: 120px 0;
     }
 
     @include for-tablet-landscape-up {
         width: 90%;
+        padding: 120px 0;
     }
 
     h1 {

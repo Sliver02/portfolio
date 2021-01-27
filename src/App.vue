@@ -31,16 +31,16 @@
                 <preview></preview>
             </div>
 
-            <div id="works" class="home__section">
-                <works></works>
-            </div>
-            
             <div id="about" class="home__section">
                 <about></about>
             </div>
 
             <div id="contact" class="home__section">
                 <contact></contact>
+            </div>
+
+            <div id="works" class="home__section">
+                <works></works>
             </div>
         </div>
 
@@ -65,13 +65,13 @@ export default {
         projectPage,
         preview,
         about,
-        works,
         contact,
+        works,
     },
 
     data() {
         return {
-            pages: [ 'home', 'works', 'about', 'contact' ],
+            pages: [ 'home', 'about', 'contact', 'works' ],
         }
     },
 

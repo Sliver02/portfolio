@@ -12,12 +12,7 @@
     overflow-x: hidden;
 
     .btn {
-        background: $trasparent-dark-gray;
-
-        &:hover {
-            background: $dark-gray;
-        }
-
+        
         &__close, &__top {
             position: fixed;
             font-size: 4rem;
@@ -40,6 +35,12 @@
 
         &__show-more {
             margin-right: 20px;
+        }
+
+        @include for-tablet-portrait-down {
+            &__close, &__top {
+                background: $trasparent-dark-gray;
+            }
         }
     }
 
