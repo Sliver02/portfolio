@@ -15,6 +15,14 @@
         padding: 120px 0;
     }
 
+    @include for-desktop-up {
+        width: 1200px;
+    }
+
+    @include for-big-desktop-up {
+        width: 1600px;
+    }
+
     h1 {
         margin-bottom: 1.2rem;
         font-family: 'Roboto Mono', monospace;
@@ -53,6 +61,14 @@
         
         @include for-tablet-landscape-up {
             --columns: 4;
+        }
+
+        @include for-desktop-up {
+            --content-width: 1200px;
+        }
+
+        @include for-big-desktop-up {
+            --content-width: 1600px;
         }
     }
 
@@ -135,8 +151,6 @@
         margin-bottom: 20px;
 
         @include for-tablet-landscape-up {
-            // flex-direction: row;
-            // align-self: end;
             margin-bottom: 80px;
             margin-left: 50px;
         }

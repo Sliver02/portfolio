@@ -37,16 +37,25 @@
             order: 2;
             margin: 5vh;
 
-            $img-side: 320px;
+            $img-side: 380px;
             width: $img-side;
             height: $img-side;
 
             :hover > & {
-                margin: 3vh;
-                margin-bottom: 5vh;
-    
+                margin: 4vh;
                 transform: scale(1.2);
                 background-size: 100%;
+            }
+        }
+
+        @include for-big-desktop-up {
+            $img-side: 420px;
+            width: $img-side;
+            height: $img-side;
+            margin: 6vh;
+
+            :hover > & {
+                margin: 5vh;
             }
         }
     }
@@ -82,7 +91,7 @@
     }
     
     &__social {
-        font-size: 2.2rem;
+        font-size: 2.5rem;
         
         i {
             margin: 0 8px;
@@ -93,7 +102,8 @@
             order: 3;
             position: absolute;
             right: 20px;
-            bottom: -10px;
+            bottom: 50px;
+            font-size: 3.2rem;
             
             i {
                 opacity: 0.6;
@@ -103,6 +113,11 @@
                     transform: translateY(-5px);
                 }
             }
+        }
+
+        @include for-big-desktop-up {
+            font-size: 3.2rem;
+            bottom: 0px;
         }
     }
 }

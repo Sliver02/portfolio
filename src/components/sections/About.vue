@@ -7,10 +7,15 @@
         <div class="about__desc">
             <h1><span class="jojo">j</span>ac<span class="jojo">o</span>po<br> .panzera</h1>
             <p>
-                Italian Illustrator, Graphic designer and web developer based in Milan.
-                Driven by curiosity to find new and better ways to express my creativity.<br>
-                A mix-bag of skills, achived by asking myself
-                <strong>how it works.</strong> And by learning <strong>how to get it done</strong>.
+                Italian Graphic Designer, illustrator and web developer based in Milan. 
+                More then 5 year of experience as freelance Graphic Designer and Illustrator, 
+                currently working as front end developer.
+                <br><br>
+                Cross disciplinary background, focused on digital illustration, concept art and branding. 
+                A deep understanding of web design and frontend development. Experiences in video editing and animation.
+                <br><br>
+                I am driven by Curiosity, to discover and learn. When I see something that I like my instict is to disect why, pricesely, it has been created that way.
+                Then I will take what suits me, and build something new and personal.
             </p>
         </div>
         <div class="about__social">

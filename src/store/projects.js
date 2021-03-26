@@ -1,4 +1,24 @@
 export default [
+    
+    
+    {
+        url: 'fungisamurai',
+        name: 'Fungi Samurai',
+        type: ['draw'],
+        desc: 'Concept art, done in photoshop. A lone Fungi Samurai walking aimlessly thru the ancient giant mushroom forest.',
+        slides: ['total','head','sketch'],
+        preview: false,
+        show: true,
+    },
+    {
+        url: 'portrait',
+        name: 'Self Portrait',
+        type: ['draw'],
+        desc: '',
+        slides: [],
+        preview: false,
+        show: true,
+    },
     {
         url: 'urdrugs',
         name: 'Know your Drugs',
@@ -6,6 +26,15 @@ export default [
         desc: 'Series of vector illustrations born to bring awarness and light on one of the most tabù topic of our society, illegal drugs. <br><br>Often we talk about these substances but most of the time we don’t even know how they look. <br><br>Thorugh weekly Instagram’s posts i tried to bring a visual rapresentation ligthen by a colorfull look, accompanied by a detailed descprition of the drug’s effects and consequences.',
         slides: ['smile', 'weed', 'opioids', 'coca', 'mashroom', 'alcol'],
         preview: true,
+        show: true,
+    },
+    {
+        url: 'square',
+        name: 'Square Movie Poster',
+        type: ['draw'],
+        desc: 'Series of vector illustrations. Movie posters forced in the square-instagram format, challenging my creativity and art skils.',
+        slides: ['1','2','3','4','5','6','7','8','9','10','11-12','11','12'],
+        preview: false,
         show: true,
     },
     {

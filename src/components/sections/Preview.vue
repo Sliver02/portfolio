@@ -7,9 +7,12 @@
             </div>
 
             <div class="preview__desc">
-                <p>Adobe-suite. Photoshop. Illustrator. InDesign. 
-                vector-art. digital-painting. animation. posters. logos. mockups. 
-                <br>brand-identity. vue-js. lit-element. javascript. scss.</p>
+                <p>graphic-design. illustration. Adobe.
+                Photoshop. Illustrator. digital-painting. 
+                vector-art. pixel-art. animation. posters. 
+                brand-identity. mockups. Unity3D. frontend. 
+                git. javascript. vue-js. scss. 
+                video-editing. premiere. </p>
             </div>
         </div>
 
