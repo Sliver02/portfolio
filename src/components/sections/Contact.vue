@@ -5,6 +5,11 @@
             <p>Let's get together to create something unique and charming</p>
         </div>
 
+        <div class="contact__links">
+            <a href="tel:+39-340-006-0384">(+39)3400060384</a>
+            <a href="mailto:panzera.jacopo@gmai.com">panzera.jacopo@gmai.com</a>
+        </div>
+
         <form @submit.prevent="handleSubmit" class="contact__form" name="contact" action="POST" data-netlify="true" data-netlify-honeypot="bot-field">
 
             <div style="diplay: none;" hidden>

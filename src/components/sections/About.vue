@@ -7,15 +7,12 @@
         <div class="about__desc">
             <h1><span class="jojo">j</span>ac<span class="jojo">o</span>po<br> .panzera</h1>
             <p>
-                Italian Graphic Designer, illustrator and web developer based in Milan. 
-                More then 5 year of experience as freelance Graphic Designer and Illustrator, 
-                currently working as front end developer.
+                Graphic Designer, illustrator and web developer based in Milan. 
+                More than 5 year of experience as freelance Graphic Designer and Illustrator.
                 <br><br>
-                Cross disciplinary background, focused on digital illustration, concept art and branding. 
-                A deep understanding of web design and frontend development. Experiences in video editing and animation.
-                <br><br>
-                I am driven by Curiosity, to discover and learn. When I see something that I like my instict is to disect why, pricesely, it has been created that way.
-                Then I will take what suits me, and build something new and personal.
+                Everything in this portfolio is done by me, one-man-band style.
+                I am Curious and Creative. That is why I love to experiment and approach new media and techniques.
+                Proactive, empatic and arguably too humble! Hope that my works will speak by themselves.
             </p>
         </div>
         <div class="about__social">
@@ -24,7 +21,6 @@
             <a href="https://www.instagram.com/jac.pan/" target="_blank"><i class="fab fa-instagram"></i></a>
         </div>
     </div>
-        
 
 </template>
 
