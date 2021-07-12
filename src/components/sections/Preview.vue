@@ -1,5 +1,5 @@
 <template>
-    <div class="preview" @mousedown="startDrag" @mousemove="drag" @mouseup="stopDrag">
+    <div class="preview" @mousedown="startDrag" @mousemove="drag" @mouseup="stopDrag" @mouseleave="stopDrag">
 
         <div class="preview__text-wrapper">
             <div class="preview__quote-wrapper">
@@ -7,12 +7,12 @@
             </div>
 
             <div class="preview__desc">
-                <p>graphic-design. illustration. Adobe.
-                Photoshop. Illustrator. digital-painting. 
-                vector-art. pixel-art. animation. posters. 
-                brand-identity. mockups. Unity3D. frontend. 
-                git. javascript. vue-js. scss. 
-                video-editing. premiere. </p>
+                <p>illustration. digital-painting. concept-art.
+                vector-art. pixel-art. Adobe.
+                Photoshop. Illustrator.  animation. graphic-design. 
+                UI. posters. brand-identity. mockups. 
+                Unity3D. frontend. git. javascript. 
+                vue-js. sass. video-editing. premiere. </p>
             </div>
         </div>
 
@@ -24,7 +24,7 @@
             <transition-group name="fadeIn">
                 <img :ref="project.url" v-for="(project, index) in getProjectsPreviewRandomOrder" :key="index"
                     :src="require('../../assets/img/projects/' + project.url +'/thumbnail.jpg')" alt=""  ondragstart="return false;" 
-                    @mousedown="isActive">
+                    @mousedown="isActive" height="300">
             </transition-group>
         </div>
     </div>
@@ -50,6 +50,11 @@ export default {
             arr: [1,2,3,4,5,6],
         }
     },
+
+    mounted: () => {
+        console.log(document.getElementById("app"));
+    },
+
 
     methods: {
         ...mapMutations([

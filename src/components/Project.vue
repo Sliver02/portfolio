@@ -8,7 +8,7 @@
         
         <div class="project__header">
             <div class="project__img">
-                <img :src="require('../assets/img/projects/' + project.url +'/header.jpg')" alt="">
+                <img :src="require('../assets/img/projects/' + project.url +'/header.jpg')" alt="" height="650">
             </div>
             <div class="project__desc">
                 <h1>{{project.name}}</h1>
@@ -29,13 +29,13 @@
         </div>
 
         <div v-show="project.slides.length != 0" ref="content" class="project__content">
-            <img v-for="(slide, index) in project.slides" :key="index" :src="require('../assets/img/projects/' + project.url +'/slides/'+ slide +'.jpg')" alt="">
+            <img v-for="(slide, index) in project.slides" :key="index" :src="require('../assets/img/projects/' + project.url +'/slides/'+ slide +'.jpg')" alt="" width="1200">
         </div>
     </div>
 </template>
 
 <script>
-import {mapState, mapMutations} from 'vuex';
+import {mapState, mapGetters, mapMutations} from 'vuex';
 
 export default {
     components: {
@@ -85,6 +85,9 @@ export default {
         ...mapState([
             'showProject',
             'projects',
+        ]),
+        ...mapGetters([
+            'getProjectsPreviewRandomOrder',
         ]),
         project() {
             return this.projects[this.selectedProject];

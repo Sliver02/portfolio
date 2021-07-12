@@ -15,7 +15,7 @@
             >
                 <div class="works__img-wrapper" >
                     <div class="works__img">
-                        <img :src="require('../../assets/img/projects/' + project.url +'/thumbnail.jpg')" alt="">
+                        <img :src="require('../../assets/img/projects/' + project.url +'/thumbnail.jpg')" alt="" height="300">
                     </div>
                 </div>
                 <div class="works__title">
@@ -60,7 +60,3 @@ export default {
     }
 }
 </script>
-
-<style lang="scss">
-    
-</style>

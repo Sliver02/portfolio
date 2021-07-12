@@ -7,12 +7,14 @@
         <div class="about__desc">
             <h1><span class="jojo">j</span>ac<span class="jojo">o</span>po<br> .panzera</h1>
             <p>
-                Graphic Designer, illustrator and web developer based in Milan. 
-                More than 5 year of experience as freelance Graphic Designer and Illustrator.
+                Graphic Designer, illustrator and web developer based in Milan.
+                Proactive, teamplayer with good managment skills and well versed to remote projects. 
+                Always striving to put love and care in what I do.
                 <br><br>
-                Everything in this portfolio is done by me, one-man-band style.
-                I am Curious and Creative. That is why I love to experiment and approach new media and techniques.
-                Proactive, empatic and arguably too humble! Hope that my works will speak by themselves.
+                Curious and creative personality, love to experiment and try
+                out new techniques and media.
+                Everything in here (including the portfolio itself) has been done by me, one-man-band!
+                I hope my work will speak for itself
             </p>
         </div>
         <div class="about__social">

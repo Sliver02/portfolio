@@ -1,10 +1,10 @@
 <template lang="">
     <agile class="carousel" :options="myOptions">
-        <div class="carousel__slide" v-for="(project, index) in getProjectsPreview" :key="index">
+        <div class="carousel__slide" v-for="(project, index) in getProjectsPreviewRandomOrder" :key="index">
             <img class="carousel__img" :src="require('../assets/img/projects/' + project.url +'/header.jpg')" alt="" >
-            <div class="carousel__desc" @click="switchProject(index)">
+            <!-- <div class="carousel__desc" @click="switchProject(index)">
                 {{project.url}}.
-            </div>
+            </div> -->
         </div>
     </agile>
 </template>
@@ -24,13 +24,12 @@ export default {
                 dots: false,
                 speed: 80000000000,
                 timing: 'ease-in-out',
-                initialSlide: 0,
             }
         }
     },
 
     beforeMount() {
-        this.startSlide();
+        // this.startSlide();
     },
 
     methods: {
@@ -48,11 +47,12 @@ export default {
         ...mapState([
             'skills',
             'selectedSkill',
+            'projects',
         ]),
         ...mapGetters([
+            'getProjectsPreviewRandomOrder',
             'getProjectsPreview',
             'showProject',
-            'projects',
         ]),
     },
 }
