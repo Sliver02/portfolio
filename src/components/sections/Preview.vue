@@ -24,7 +24,7 @@
             <transition-group name="fadeIn">
                 <img :ref="project.url" v-for="(project, index) in getProjectsPreviewRandomOrder" :key="index"
                     :src="require('../../assets/img/projects/' + project.url +'/thumbnail.jpg')" alt=""  ondragstart="return false;" 
-                    @mousedown="isActive" height="300">
+                    @mousedown="isActive" height="300"  rel="preload">
             </transition-group>
         </div>
     </div>
