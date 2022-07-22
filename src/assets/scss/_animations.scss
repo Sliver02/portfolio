@@ -1,16 +1,16 @@
 .fadeRigt-enter-active, .fadeRigt-leave-active {
     transition: opacity 0.5s, transform 1s;
 }
-.fadeRigt-enter, .fadeRigt-leave-to /* .fadeRigt-leave-active below version 2.1.8 */ {
+.fadeRigt-enter, .fadeRigt-leave-to {
     opacity: 0;
     transform: translateX(100vh);
 }
 
 .fadeIn-enter-active, .fadeIn-leave-active {
-    opacity: 0;
+    opacity: 1;
     transition: opacity 0.2s, transform 0.3s;
 }
-.fadeIn-enter, .fadeIn-leave-to /* .fadeRigt-leave-active below version 2.1.8 */ {
+.fadeIn-enter, .fadeIn-leave-to {
     opacity: 0;
     transition: opacity 0.2s, transform 0.3s;
     transform: scale(0.9);
@@ -19,6 +19,7 @@
 .expand-enter-active, .expand-leave-active {
     transition: transform 0.3s;
 }
-.expand-enter, .expand-leave-to /* .fadeRigt-leave-active below version 2.1.8 */ {
+
+.expand-enter, .expand-leave-to {
     transform: scaleY(0);
 }

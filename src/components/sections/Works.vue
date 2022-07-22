@@ -21,7 +21,6 @@
                 <div class="works__title">
                     .{{project.url}}
                 </div>
-
             </div>
         </transition-group>
     </div>
