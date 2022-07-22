@@ -9,13 +9,13 @@
 
         <transition-group name="fadeIn" class="works__projects-wrap">
             <div class="works__project" 
-                v-for="(project, index) in projects" :key="index" 
+                v-for="(project, index) in projects" :key="90+index" 
                 @click="switchProject(index)" 
                 v-show="project.show"
             >
                 <div class="works__img-wrapper" >
                     <div class="works__img">
-                        <img :src="require('../../assets/img/projects/' + project.url +'/thumbnail.jpg')" alt="" height="300">
+                        <img :src="require('../../assets/img/projects/' + project.url +'/thumbnail.jpg')" alt="" height="600">
                     </div>
                 </div>
                 <div class="works__title">

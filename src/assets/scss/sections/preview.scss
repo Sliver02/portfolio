@@ -100,7 +100,7 @@
         }
         
         @include for-big-desktop-up {
-            max-width: 800px;
+            max-width: 40vw;
             font-size: 1.4rem;
             line-height: 1.6rem;
         }
@@ -117,33 +117,26 @@
         padding: 0 40px;
 
         @include for-desktop-up {
-            padding: 0 80px;
+        width: 80%;
+        padding: 0 80px;
         }
         
         img {            
-            // max-width: 500px;
+            height: 100%;
             max-height: 220px;
             position: relative;
-            // transition: transform 0.2s ease-out;
 
             margin: 12px;
 
             cursor: move;
-            user-drag: none; 
             user-select: none;
             -moz-user-select: none;
             -webkit-user-drag: none;
             -webkit-user-select: none;
             -ms-user-select: none;
 
-            // box-shadow: 4px 4px 5px $trasparent-black;
-
             @include for-desktop-up {
-                max-height: 300px;
-            }
-
-            @include for-big-desktop-up {
-                max-height: 450px;
+                max-height: 30vh;
             }
         }
     }

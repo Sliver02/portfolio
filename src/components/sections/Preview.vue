@@ -22,7 +22,7 @@
 
         <div class="preview__img-wrapper" v-else>
             <transition-group name="fadeIn">
-                <img :ref="project.url" v-for="(project, index) in getProjectsPreviewRandomOrder" :key="index"
+                <img :ref="project.url" v-for="(project, index) in getProjectsPreviewRandomOrder" :key="43+index"
                     :src="require('../../assets/img/projects/' + project.url +'/thumbnail.jpg')" alt=""  ondragstart="return false;" 
                     @mousedown="isActive" height="300"  rel="preload">
             </transition-group>
